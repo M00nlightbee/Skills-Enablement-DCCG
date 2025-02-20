@@ -60,7 +60,7 @@ public class CardManager : MonoBehaviour
 	//}
 
 	// Path to the CSV file containing card data
-	public string csvFilePath = "C:/Users/ouloy/Desktop/Create with Code - Blessing/2D-Prototype/cardData.csv";
+	public string csvFilePath = "Enter your own path here";
 
 	void Spawn()
 	{

@@ -94,7 +94,7 @@ public class Card : MonoBehaviour
 	void Start()
 	{
 		// Change file path to match you location
-		string csvFilePath = "C:/Users/ouloy/Desktop/Create with Code - Blessing/2D-Prototype/cardData.csv";
+		string csvFilePath = "Enter your own path here";
 
 		CardData[] cardDataArray = LoadCardDataFromCSV(csvFilePath);
 
