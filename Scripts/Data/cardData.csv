@@ -1,0 +1,21 @@
+﻿card_name,card_type,mechanics,rarity,damage
+Fireblade,Spell,Burn: Overload,Rare,6
+Shadowfang,Minion,Stealth: Poison,Epic,4
+Thunderstrike,Spell,Overload: Stun,Common,5
+Arcane Golem,Minion,Charge: Deathrattle,Rare,7
+Frost Lich,Hero,Freeze: Lifesteal,Legendary,8
+Earthwarden,Minion,Taunt: Battlecry,Common,3
+Voidwalker,Minion,Taunt,Common,2
+Pyromancer,Minion,Spell Damage: Burn,Epic,6
+Stormcaller,Minion,Windfury: Overload,Rare,5
+Holy Light,Spell,Heal: Divine,Common,0
+Doomcaller,Minion,Deathrattle: Summon,Legendary,9
+Celestial Beam,Spell,Silence: Burn,Rare,7
+Phantom Rogue,Minion,Stealth: Combo,Common,4
+Lava Burst,Spell,Burn: Overload,Rare,6
+Icebound Mage,Minion,Freeze: Spell Damage,Epic,5
+Warbringer,Minion,Battlecry: Charge,Legendary,8
+Blood Ritual,Spell,Lifesteal: Draw,Rare,4
+Nether Drake,Minion,Spell Damage: Flying,Epic,7
+Guardian Titan,Minion,Taunt: Divine Shield,Legendary,10
+Chaos Bolt,Spell,Random: Burn,Rare,6
