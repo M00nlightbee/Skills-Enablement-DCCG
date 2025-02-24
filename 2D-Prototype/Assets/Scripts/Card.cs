@@ -93,8 +93,8 @@ public class Card : MonoBehaviour
 	// Start is called once before the first execution of Update after the MonoBehaviour is created
 	void Start()
 	{
-		// Change file path to match you location
-		string csvFilePath = "C:/Users/ouloy/Desktop/Create with Code - Blessing/2D-Prototype/cardData.csv";
+		// Filepath
+		string csvFilePath = "own file path";
 
 		CardData[] cardDataArray = LoadCardDataFromCSV(csvFilePath);
 
