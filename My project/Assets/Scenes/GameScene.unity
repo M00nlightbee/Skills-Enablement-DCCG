@@ -1356,6 +1356,7 @@ MonoBehaviour:
   AIManaText: {fileID: 2051501055}
   currentMana: 3
   maxMana: 10
+  cardCost: 3
   manaBlocks:
   - {fileID: 852983246}
   - {fileID: 25062698}

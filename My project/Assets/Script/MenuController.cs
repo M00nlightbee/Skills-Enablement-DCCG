@@ -3,20 +3,27 @@ using UnityEngine.SceneManagement;
 
 public class MenuController : MonoBehaviour
 {
+    public GameObject optionsPanel; // ← This will connect to your UI panel in the Inspector
+
     public void PlayGame()
     {
-        SceneManager.LoadScene("GameScene"); // Replace with your scene name!
+        SceneManager.LoadScene("GameScene"); // Replace with your actual scene name
     }
 
     public void OpenOptions()
     {
         Debug.Log("Options clicked!");
-        // You can later show a settings menu here
+        optionsPanel.SetActive(true); // 🔥 This shows the panel
+    }
+
+    public void CloseOptions()
+    {
+        optionsPanel.SetActive(false); // 🔥 This hides the panel when "Back" is clicked
     }
 
     public void QuitGame()
     {
         Debug.Log("Quitting Game...");
-        Application.Quit(); // Works in build, not editor
+        Application.Quit();
     }
 }
