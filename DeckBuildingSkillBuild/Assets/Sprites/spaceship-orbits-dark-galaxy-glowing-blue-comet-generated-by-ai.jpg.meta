@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      spaceship-orbits-dark-galaxy-glowing-blue-comet-generated-by-ai_0: 7252827291962531464
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

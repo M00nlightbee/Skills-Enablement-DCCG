@@ -1079,6 +1079,7 @@ GameObject:
   - component: {fileID: 5783390076103837742}
   - component: {fileID: 197249709074638239}
   - component: {fileID: 1261241414419518928}
+  - component: {fileID: 9144113223425398290}
   m_Layer: 0
   m_Name: CardPrefab
   m_TagString: Untagged
@@ -1202,6 +1203,18 @@ MonoBehaviour:
   playPositionXDivider: 4
   playPositionXMultiplier: 1
   needUpdatePlayPosition: 0
+--- !u!225 &9144113223425398290
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4055509199073717536}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &4091146546894718551
 GameObject:
   m_ObjectHideFlags: 0

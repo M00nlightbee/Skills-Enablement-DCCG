@@ -16,18 +16,18 @@ public class CardDisplay : MonoBehaviour
 	public Image[] rarityImages;
 	public Image[] typeImages;
 
-	private Color[] rarityColors = { 
-		Color.white, // common
-		Color.green, // uncommon
-		Color.blue, // rare
-		new Color(0.5f, 0f, 0.5f), // epic
-		Color.yellow // legendary
-	};
-	private Color[] typeColors = { 
-		Color.red, // attack
-		Color.green, // heal
-		Color.blue // question
-	};
+	private Color[] rarityColors = {
+										Color.white, // common
+										Color.green, // uncommon
+										Color.blue, // rare
+										new Color(0.5f, 0f, 0.5f), // epic
+										Color.yellow // legendary
+									};
+	private Color[] typeColors = {
+										Color.red, // attack
+										Color.green, // heal
+										Color.blue // question
+									};
 
 	void Start()
 	{
@@ -36,6 +36,12 @@ public class CardDisplay : MonoBehaviour
 
 	public void UpdateCardDisplay()
 	{
+		if (cardData == null)
+		{
+			Debug.LogError("Card data is not assigned.");
+			return;
+		}
+
 		// Update type image based on the card type
 		for (int i = 0; i < typeImages.Length; i++)
 		{
@@ -62,11 +68,36 @@ public class CardDisplay : MonoBehaviour
 				rarityImages[i].gameObject.SetActive(false);
 			}
 		}
-		nameText.text = cardData.cardName;
-		descriptionText.text = cardData.cardDescription;
-		manaText.text = cardData.manaCost.ToString();
-		effectText.text = cardData.effect.ToString();
-		cardImage.sprite = cardData.cardImage;
+
+		if (nameText != null)
+			nameText.text = cardData.cardName;
+		else
+			Debug.LogError("Name Text is not assigned.");
+
+		if (descriptionText != null)
+			descriptionText.text = cardData.cardDescription;
+		else
+			Debug.LogError("Description Text is not assigned.");
+
+		if (manaText != null)
+			manaText.text = cardData.manaCost.ToString();
+		else
+			Debug.LogError("Mana Text is not assigned.");
+
+		if (effectText != null)
+			effectText.text = cardData.effect.ToString();
+		else
+			Debug.LogError("Effect Text is not assigned.");
+
+		if (cardImage != null)
+			cardImage.sprite = cardData.cardImage;
+		else
+			Debug.LogError("Card Image is not assigned.");
 	}
 
+	public void SetCard(Card newCardData)
+	{
+		cardData = newCardData;
+		UpdateCardDisplay();
+	}
 }
