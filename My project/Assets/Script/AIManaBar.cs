@@ -8,34 +8,13 @@ public class AIManaBar : MonoBehaviour
     public int maxMana = 10;
     public int cardCost = 3;
 
-    public Image[] manaBlocks; // Mana block images
+    public Image[] manaBlocks;
     public Color fullColor = Color.cyan;
     public Color emptyColor = Color.gray;
 
     void Start()
     {
         UpdateManaBar();
-    }
-
-    void Update()
-    {
-        // Test spending mana
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            UseMana(1);
-        }
-
-        // Test restoring mana
-        if (Input.GetKeyDown(KeyCode.R))
-        {
-            RestoreMana(1);
-        }
-
-        // Test AI playing card if enough mana
-        if (Input.GetKeyDown(KeyCode.P))
-        {
-            TryPlayCard();
-        }
     }
 
     public void UseMana(int amount)
@@ -54,7 +33,14 @@ public class AIManaBar : MonoBehaviour
     {
         for (int i = 0; i < manaBlocks.Length; i++)
         {
-            manaBlocks[i].color = i < currentMana ? fullColor : emptyColor;
+            if (i < currentMana)
+            {
+                manaBlocks[i].color = fullColor;
+            }
+            else
+            {
+                manaBlocks[i].color = emptyColor;
+            }
         }
 
         if (AIManaText != null)
@@ -69,11 +55,28 @@ public class AIManaBar : MonoBehaviour
         {
             UseMana(cardCost);
             Debug.Log("AI played a card!");
-            // You can add visual logic here later
         }
         else
         {
-            Debug.Log("Not enough mana for AI to play.");
+            Debug.Log("Not enough mana.");
+        }
+    }
+
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.P))
+        {
+            TryPlayCard(); // Tries to play a card
+        }
+
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            UseMana(1); // Uses 1 mana
+        }
+
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            RestoreMana(1); // Restores 1 mana
         }
     }
 }

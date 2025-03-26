@@ -7,7 +7,7 @@ public class MenuController : MonoBehaviour
 
     public void PlayGame()
     {
-        SceneManager.LoadScene("GameScene"); // Replace with your actual scene name
+        SceneManager.LoadScene("ChooseCourse"); // Replace with your actual scene name
     }
 
     public void OpenOptions()
