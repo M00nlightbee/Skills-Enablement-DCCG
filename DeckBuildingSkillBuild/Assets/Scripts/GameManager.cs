@@ -112,8 +112,8 @@ public class GameManager : MonoBehaviour
 
 	public static GameManager Instance { get; private set; }
 
-	private int playerHealth = 30;
-	private int opponentHealth = 20;
+	private int playerHealth = 20;
+	private int opponentHealth = 30;
 	private const int minHealth = 0;
 	private const int maxHealth = 30;
 	private const string defeatSceneName = "DefeatScene";
@@ -143,11 +143,15 @@ public class GameManager : MonoBehaviour
 
 	public void DealDamageToOpponent(Card card, GameObject cardObject)
 	{
-		// Check if the card type is attack before dealing damage
-		if (card.cardType.Contains(Card.CardType.attack))
+		// Check if the card type before dealing damage
+		if (card.cardType.Contains(Card.CardType.question))
+		{
+			HandleQuestionCardDrop(card, cardObject);
+		}
+		else if (card.cardType.Contains(Card.CardType.attack))
 		{
 			opponentHealth -= card.effect;
-			opponentHealth = Mathf.Clamp(opponentHealth, 0, maxHealth); // Ensure health does not exceed maxHealth
+			opponentHealth = Mathf.Clamp(opponentHealth, 0, maxHealth);
 			Debug.Log($"Dealing {card.effect} damage to the opponent's ship. New health: {opponentHealth}");
 			opponentHealthUI.UpdateHealthUI(opponentHealth);
 
@@ -156,11 +160,7 @@ public class GameManager : MonoBehaviour
 
 			// Remove the card from hand and destroy it
 			handManager.RemoveCardFromHand(cardObject);
-		}
-		else if (card.cardType.Contains(Card.CardType.question))
-		{
-			// Change the scene if the card type is question
-			SceneManager.LoadScene("QuestionScene"); // Bug: not loading the scene
+			Destroy(cardObject);
 		}
 		else
 		{
@@ -168,18 +168,22 @@ public class GameManager : MonoBehaviour
 		}
 	}
 
-	public void HealPlayer(Card card)
+	public void HealPlayer(Card card, GameObject cardObject)
 	{
 		// Check if the card type is heal and player's health is less than maxHealth
 		if (card.cardType.Contains(Card.CardType.heal) && playerHealth < maxHealth)
 		{
 			playerHealth += card.effect;
-			playerHealth = Mathf.Clamp(playerHealth, 0, maxHealth); // Ensure health does not exceed maxHealth
+			playerHealth = Mathf.Clamp(playerHealth, 0, maxHealth);
 			Debug.Log($"Healing player by {card.effect}. New health: {playerHealth}");
 			playerHealthUI.UpdateHealthUI(playerHealth);
 
 			// Check health status
 			CheckHealthStatus();
+
+			// Remove the card from hand and destroy it
+			handManager.RemoveCardFromHand(cardObject);
+			Destroy(cardObject);
 		}
 		else
 		{
@@ -187,15 +191,32 @@ public class GameManager : MonoBehaviour
 		}
 	}
 
+	public void HandleQuestionCardDrop(Card card, GameObject cardObject)
+	{
+		// check if card dropped is of type question
+		if (card.cardType.Contains(Card.CardType.question))
+		{
+			Debug.Log("Loading QuestionScene...");
+			SceneManager.LoadSceneAsync("QuestionScene");
+
+			handManager.RemoveCardFromHand(cardObject);
+			Destroy(cardObject);
+		}
+		else
+		{
+			Debug.Log("Unable to load QuestionScene");
+		}
+	}
+
 	private void CheckHealthStatus()
 	{
 		if (playerHealth <= minHealth)
 		{
-			SceneManager.LoadScene(defeatSceneName);
+			SceneManager.LoadSceneAsync(defeatSceneName);
 		}
 		else if (opponentHealth <= minHealth)
 		{
-			SceneManager.LoadScene(victorySceneName);
+			SceneManager.LoadSceneAsync(victorySceneName);
 		}
 	}
 

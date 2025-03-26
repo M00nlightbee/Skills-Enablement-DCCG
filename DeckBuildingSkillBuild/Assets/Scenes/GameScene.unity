@@ -1301,8 +1301,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -500, y: 350}
-  m_SizeDelta: {x: 100, y: 100}
+  m_AnchoredPosition: {x: -469, y: 320}
+  m_SizeDelta: {x: 237.5621, y: 282.3498}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!61 &1451908656
 BoxCollider2D:
@@ -1334,7 +1334,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
@@ -1545,8 +1545,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -500, y: -176}
-  m_SizeDelta: {x: 100, y: 100}
+  m_AnchoredPosition: {x: -489, y: -209}
+  m_SizeDelta: {x: 237.5621, y: 276}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1923847038
 MonoBehaviour:
@@ -1591,7 +1591,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
