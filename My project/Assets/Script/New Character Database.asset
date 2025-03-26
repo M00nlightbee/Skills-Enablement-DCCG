@@ -1,0 +1,35 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 33241e5c8585a1442b5076d478cbdefc, type: 3}
+  m_Name: New Character Database
+  m_EditorClassIdentifier: 
+  character:
+  - characherSprite: {fileID: 21300000, guid: 367d57d7653407f40961240637a49ce2, type: 3}
+  - characherSprite: {fileID: 21300000, guid: 72e65ca2e4f13da4e8036a4679b6201a, type: 3}
+  - characherSprite: {fileID: 21300000, guid: 72e08e162b1d17a479ead68ae2f227bd, type: 3}
+  - characherSprite: {fileID: 21300000, guid: 77e9a79b534e75a4ea23ea091f592102, type: 3}
+  - characherSprite: {fileID: 21300000, guid: 1bf68f21c3d8e1c41b3c4430cebae5fc, type: 3}
+  - characherSprite: {fileID: 21300000, guid: 70a01fc43992a1c42a04b82f55edc69c, type: 3}
+  - characherSprite: {fileID: 21300000, guid: a79071a98d3f3b843b161f55089f81dc, type: 3}
+  - characherSprite: {fileID: 21300000, guid: c25fe5e76d3c0be47afd4593b559820a, type: 3}
+  - characherSprite: {fileID: 21300000, guid: 1fd9816ea4abaa443ba030cb71906eb4, type: 3}
+  - characherSprite: {fileID: 21300000, guid: e51785da2ade9574fb0ade87f49a2ba3, type: 3}
+  - characherSprite: {fileID: 21300000, guid: e2944385e87fb824699f584709371bd6, type: 3}
+  - characherSprite: {fileID: 21300000, guid: f83c53031dc049e45b988afe73e353b9, type: 3}
+  - characherSprite: {fileID: 21300000, guid: 03f2862e49eb01c43b34cd47036ddf8b, type: 3}
+  - characherSprite: {fileID: 21300000, guid: 04643167264abf341acf8ea8cc25b74f, type: 3}
+  - characherSprite: {fileID: 21300000, guid: ad42132d27274b8499c82f35b4550e7c, type: 3}
+  - characherSprite: {fileID: 21300000, guid: 6c8e97e14bad3e24897b293af36ddf5e, type: 3}
+  - characherSprite: {fileID: 21300000, guid: add7ba784136b59478a4bed7eb96a2d0, type: 3}
+  - characherSprite: {fileID: 21300000, guid: cb1b285db24dc594d85e1945f6e58a88, type: 3}
+  - characherSprite: {fileID: 21300000, guid: d221111da83a4ed4e8292d8a4efd34c2, type: 3}
+  - characherSprite: {fileID: 21300000, guid: 8801764045dec064aaaccf7432586c89, type: 3}
