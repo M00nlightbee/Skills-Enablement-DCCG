@@ -247,7 +247,11 @@ public class GameManager : MonoBehaviour
 		if (card.cardType.Contains(Card.CardType.question))
 		{
 			Debug.Log("Loading QuestionScene...");
-			SceneManager.LoadSceneAsync("QuestionScene");
+
+			// Set the number of questions to ask based on the card's mana cost value
+			Questions.totalQuestionsToAsk = card.manaCost == 0 ? 2 : card.manaCost;
+
+			StartCoroutine(LoadQuestionScene());
 
 			handManager.RemoveCardFromHand(cardObject);
 			Destroy(cardObject);
@@ -256,6 +260,15 @@ public class GameManager : MonoBehaviour
 		{
 			Debug.Log("Unable to load QuestionScene");
 		}
+	}
+
+	private IEnumerator LoadQuestionScene()
+	{
+		// Pause the game
+		Time.timeScale = 0;
+
+		// Load the question scene additively
+		yield return SceneManager.LoadSceneAsync("Question_Display", LoadSceneMode.Additive);
 	}
 
 	private void CheckHealthStatus()

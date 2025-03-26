@@ -16,18 +16,20 @@ public class CardDisplay : MonoBehaviour
 	public Image[] rarityImages;
 	public Image[] typeImages;
 
-	private Color[] rarityColors = {
-										Color.white, // common
-										Color.green, // uncommon
-										Color.blue, // rare
-										new Color(0.5f, 0f, 0.5f), // epic
-										Color.yellow // legendary
-									};
-	private Color[] typeColors = {
-										Color.red, // attack
-										Color.green, // heal
-										Color.blue // question
-									};
+	private Color[] rarityColors = 
+	{
+		Color.white, // common
+		Color.green, // uncommon
+		Color.blue, // rare
+		new Color(0.5f, 0f, 0.5f), // epic
+		Color.yellow // legendary
+	};
+	private Color[] typeColors = 
+	{
+		Color.red, // attack
+		Color.green, // heal
+		Color.blue // question
+	};
 
 	void Start()
 	{
