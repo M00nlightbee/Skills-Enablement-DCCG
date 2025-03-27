@@ -49,3 +49,6 @@ public class DropArea : MonoBehaviour, IDropHandler
 		}
 	}
 }
+
+
+

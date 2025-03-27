@@ -21,10 +21,22 @@ public class GameManager : MonoBehaviour
 	private HandManager handManager;
 	private bool isPlayerTurn = true;
 
+	// Mana System
+	private int playerMana = 3;
+	private int opponentMana = 3;
+	private const int maxMana = 10;
+	private const int manaRegen = 2;
+	private ManaUI playerManaUI;
+	private ManaUI opponentManaUI;
+
 	public Button endTurnButton;
 	private DeckManager deckManager;
 
 	private static System.Random random = new System.Random();
+
+	//reference number of correct answers by player from Questions.cs
+	private int correctAnswers = Questions.correctAnswers;
+
 
 	private void Awake()
 	{
@@ -33,12 +45,18 @@ public class GameManager : MonoBehaviour
 			Instance = this;
 			playerHealthUI = GameObject.Find("PlayerHealthText").GetComponent<HealthUI>();
 			opponentHealthUI = GameObject.Find("OpponentHealthText").GetComponent<HealthUI>();
+			playerManaUI = GameObject.Find("PlayerManaText").GetComponent<ManaUI>();
+			opponentManaUI = GameObject.Find("OpponentManaText").GetComponent<ManaUI>();
 			handManager = FindAnyObjectByType<HandManager>();
 			deckManager = FindAnyObjectByType<DeckManager>();
 
 			// Set initial health values
 			playerHealthUI.UpdateHealthUI(playerHealth);
 			opponentHealthUI.UpdateHealthUI(opponentHealth);
+
+			// Set initial mana values
+			playerManaUI.UpdateManaUI(playerMana);
+			opponentManaUI.UpdateManaUI(opponentMana);
 
 			// Assign the button click event
 			endTurnButton = GameObject.Find("EndTurnButton").GetComponent<Button>();
@@ -110,39 +128,45 @@ public class GameManager : MonoBehaviour
 				Debug.LogError("CardDisplay component not found on card object.");
 			}
 
-			// Play the card
-			if (card.cardType.Contains(Card.CardType.attack))
+			//check if opponent has enough mana to play the card
+			if (opponentMana >= card.manaCost)
 			{
-				// Opponent plays attack card in player's drop area
-				SpawnCardInDropArea(card, cardObject, "PlayerDropArea");
-
-				// Update player's health
-				playerHealth -= card.effect;
-				playerHealth = Mathf.Clamp(playerHealth, 0, maxHealth);
-				playerHealthUI.UpdateHealthUI(playerHealth);
-
-				// Check health status
-				CheckHealthStatus();
+				// Play the card
+				if (card.cardType.Contains(Card.CardType.attack))
+				{
+					// Opponent plays attack card in player's drop area
+					SpawnCardInDropArea(card, cardObject, "PlayerDropArea");
+					// Update player's health
+					playerHealth -= card.effect;
+					playerHealth = Mathf.Clamp(playerHealth, 0, maxHealth);
+					playerHealthUI.UpdateHealthUI(playerHealth);
+					// Update opponent's mana
+					opponentMana -= card.manaCost;
+					opponentMana = Mathf.Clamp(opponentMana, 0, maxMana);
+					opponentManaUI.UpdateManaUI(opponentMana);
+					// Check health status
+					CheckHealthStatus();
+				}
+				else if (card.cardType.Contains(Card.CardType.heal))
+				{
+					// Opponent plays heal card in opponent's drop area
+					SpawnCardInDropArea(card, cardObject, "OpponentDropArea");
+					// Update opponent's health
+					opponentHealth += card.effect;
+					opponentHealth = Mathf.Clamp(opponentHealth, 0, maxHealth);
+					opponentHealthUI.UpdateHealthUI(opponentHealth);
+					// Update opponent's mana
+					opponentMana -= card.manaCost;
+					opponentMana = Mathf.Clamp(opponentMana, 0, maxMana);
+					opponentManaUI.UpdateManaUI(opponentMana);
+					// Check health status
+					CheckHealthStatus();
+				}
+				// Remove the card from hand and destroy it after a delay
+				yield return StartCoroutine(RemoveAndDestroyCardAfterDelay(cardObject, 1.0f));
+				// Wait for a short delay between each card play
+				yield return new WaitForSeconds(1.0f);
 			}
-			else if (card.cardType.Contains(Card.CardType.heal))
-			{
-				// Opponent plays heal card in opponent's drop area
-				SpawnCardInDropArea(card, cardObject, "OpponentDropArea");
-
-				// Update opponent's health
-				opponentHealth += card.effect;
-				opponentHealth = Mathf.Clamp(opponentHealth, 0, maxHealth);
-				opponentHealthUI.UpdateHealthUI(opponentHealth);
-
-				// Check health status
-				CheckHealthStatus();
-			}
-
-			// Remove the card from hand and destroy it after a delay
-			yield return StartCoroutine(RemoveAndDestroyCardAfterDelay(cardObject, 1.0f));
-
-			// Wait for a short delay between each card play
-			yield return new WaitForSeconds(1.0f);
 		}
 
 		// Re-enable player's hand UI
@@ -169,6 +193,8 @@ public class GameManager : MonoBehaviour
 			{
 				HandleQuestionCardDrop(card, cardObject);
 			}
+
+			UpdateOpponentMana();
 		}
 		else
 		{
@@ -200,17 +226,32 @@ public class GameManager : MonoBehaviour
 		// Check if the card type before dealing damage
 		if (card.cardType.Contains(Card.CardType.attack))
 		{
-			opponentHealth -= card.effect;
-			opponentHealth = Mathf.Clamp(opponentHealth, 0, maxHealth);
-			Debug.Log($"Dealing {card.effect} damage to the opponent's ship. New health: {opponentHealth}");
-			opponentHealthUI.UpdateHealthUI(opponentHealth);
+			// check if player has enough mana before dealing damage
+			if (!CheckMana(card))
+			{
+				Debug.Log("Not enough mana to play the card.");
+				return;
+			}
+			else
+			{
+				opponentHealth -= card.effect;
+				opponentHealth = Mathf.Clamp(opponentHealth, 0, maxHealth);
+				Debug.Log($"Dealing {card.effect} damage to the opponent's ship. New health: {opponentHealth}");
+				opponentHealthUI.UpdateHealthUI(opponentHealth);
 
-			// Check health status
-			CheckHealthStatus();
+				// Update player's mana
+				playerMana -= card.manaCost;
+				playerMana = Mathf.Clamp(playerMana, 0, maxMana);
+				playerManaUI.UpdateManaUI(playerMana);
 
-			// Remove the card from hand and destroy it
-			handManager.RemoveCardFromHand(cardObject);
-			Destroy(cardObject);
+				// Check health status
+				CheckHealthStatus();
+
+				// Remove the card from hand and destroy it
+				handManager.RemoveCardFromHand(cardObject);
+				Destroy(cardObject);
+			}
+
 		}
 		else
 		{
@@ -223,17 +264,32 @@ public class GameManager : MonoBehaviour
 		// Check if the card type is heal and player's health is less than maxHealth
 		if (card.cardType.Contains(Card.CardType.heal) && playerHealth < maxHealth)
 		{
-			playerHealth += card.effect;
-			playerHealth = Mathf.Clamp(playerHealth, 0, maxHealth);
-			Debug.Log($"Healing player by {card.effect}. New health: {playerHealth}");
-			playerHealthUI.UpdateHealthUI(playerHealth);
+			// check if player has enough mana before healing
+			if (!CheckMana(card))
+			{
+				Debug.Log("Not enough mana to play the card.");
+				return;
+			}
+			else
+			{
+				playerHealth += card.effect;
+				playerHealth = Mathf.Clamp(playerHealth, 0, maxHealth);
+				Debug.Log($"Healing player by {card.effect}. New health: {playerHealth}");
+				playerHealthUI.UpdateHealthUI(playerHealth);
 
-			// Check health status
-			CheckHealthStatus();
+				// Update player's mana after healing
+				playerMana -= card.manaCost;
+				playerMana = Mathf.Clamp(playerMana, 0, maxMana);
+				playerManaUI.UpdateManaUI(playerMana);
 
-			// Remove the card from hand and destroy it
-			handManager.RemoveCardFromHand(cardObject);
-			Destroy(cardObject);
+				// Check health status
+				CheckHealthStatus();
+
+				// Remove the card from hand and destroy it
+				handManager.RemoveCardFromHand(cardObject);
+				Destroy(cardObject);
+			}
+	;
 		}
 		else
 		{
@@ -246,7 +302,21 @@ public class GameManager : MonoBehaviour
 		// check if card dropped is of type question
 		if (card.cardType.Contains(Card.CardType.question))
 		{
+			// check if player has enough mana before loading the question scene
+			if (!CheckMana(card))
+			{
+				Debug.Log("Not enough mana to play the card.");
+				return;
+			}
+
 			Debug.Log("Loading QuestionScene...");
+
+			// Update player's mana
+			playerMana -= card.manaCost;
+			playerMana = Mathf.Clamp(playerMana, 0, maxMana);
+			playerManaUI.UpdateManaUI(playerMana);
+
+			GetPlayerMana();
 
 			// Set the number of questions to ask based on the card's mana cost value
 			Questions.totalQuestionsToAsk = card.manaCost == 0 ? 2 : card.manaCost;
@@ -283,13 +353,52 @@ public class GameManager : MonoBehaviour
 		}
 	}
 
+	//// update player's mana after answering questions
+	//public void UpdatePlayerMana()
+	//{
+	//	// add to player's mana with number of correct answers
+	//	playerMana += correctAnswers;
+	//	playerMana = Mathf.Clamp(playerMana, 0, maxMana);
+	//	playerManaUI.UpdateManaUI(playerMana);
+	//}
+
+	// Handle updating opponent's mana function
+	public void UpdateOpponentMana()
+	{
+		opponentMana += manaRegen;
+		opponentMana = Mathf.Clamp(opponentMana, 0, maxMana);
+		opponentManaUI.UpdateManaUI(opponentMana);
+	}
+
+	// Chcek player has enough mana to play the card
+	public bool CheckMana(Card card)
+	{
+		if (playerMana >= card.manaCost)
+		{
+			return true;
+		}
+		else
+		{
+			return false;
+		}
+	}
+
 	public int GetPlayerHealth()
 	{
 		return playerHealth;
 	}
-
 	public int GetOpponentHealth()
 	{
 		return opponentHealth;
 	}
+	public int GetPlayerMana()
+	{
+		return playerMana;
+	}
+	public int GetOpponentMana()
+	{
+		return opponentMana;
+	}
 }
+
+
