@@ -20,6 +20,12 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/StartScreen.unity
     guid: b3ef6c026bc6d9f46a6caab9e1063a53
+  - enabled: 1
+    path: Assets/Scenes/AvaSelect.unity
+    guid: a29fb6292ccc5de4dacddb62e8537441
+  - enabled: 1
+    path: Assets/Scenes/ChooseCourse.unity
+    guid: a988834a54906496ca88e1299ed0398f
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0
