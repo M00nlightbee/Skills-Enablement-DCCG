@@ -8,12 +8,14 @@ public class DragUIObject : MonoBehaviour, IDragHandler, IPointerDownHandler, IE
 	private Canvas canvas;
 	private Vector2 originalLocalPointerPosition;
 	private Vector3 originalPanelLocalPosition;
-	public float movementSensitivity = 1.0f; // Adjustable sensitivity if needed
+	public float movementSensitivity = 1.0f; 
+	private CardDisplay cardDisplay;
 
 	void Awake()
 	{
-		rectTransform = GetComponent<RectTransform>(); //Get the RectTransform component of the attached GameObject
-		canvas = GetComponentInParent<Canvas>(); //Get the Canvas component of the attached GameObject
+		rectTransform = GetComponent<RectTransform>();
+		canvas = GetComponentInParent<Canvas>(); 
+		cardDisplay = GetComponent<CardDisplay>(); 
 	}
 
 	public void OnPointerDown(PointerEventData eventData) //This is inherited from the IPointerDownHandler class referenced above
@@ -31,12 +33,15 @@ public class DragUIObject : MonoBehaviour, IDragHandler, IPointerDownHandler, IE
 			// Adjusting the movement based on sensitivity
 			Vector3 offsetToOriginal = (localPointerPosition - originalLocalPointerPosition) * movementSensitivity;
 			rectTransform.localPosition = originalPanelLocalPosition + offsetToOriginal;
-
 		}
 	}
 
 	public void OnEndDrag(PointerEventData eventData)
 	{
-		// holder for future functionality
+		// Check if the card dropped is question card type
+		if (cardDisplay != null && cardDisplay.cardData.cardType.Contains(Card.CardType.question))
+		{
+			GameManager.Instance.HandleQuestionCardDrop(cardDisplay.cardData, gameObject);
+		}
 	}
 }

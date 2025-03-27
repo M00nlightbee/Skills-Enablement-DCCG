@@ -19,7 +19,7 @@ public class DropArea : MonoBehaviour, IDropHandler
 					// Check if the card type is heal and apply healing to the player
 					if (cardDisplay.cardData.cardType.Contains(Card.CardType.heal))
 					{
-						GameManager.Instance.HealPlayer(cardDisplay.cardData);
+						GameManager.Instance.HealPlayer(cardDisplay.cardData, droppedObject);
 					}
 					else
 					{
@@ -28,14 +28,19 @@ public class DropArea : MonoBehaviour, IDropHandler
 				}
 				else
 				{
+					// Check if the card type is question and handle question card drop
+					if (cardDisplay.cardData.cardType.Contains(Card.CardType.question))
+					{
+						GameManager.Instance.HandleQuestionCardDrop(cardDisplay.cardData, droppedObject);
+					}
 					// Deal damage to the opponent's ship
-					if (cardDisplay.cardData.cardType.Contains(Card.CardType.attack))
+					else if (cardDisplay.cardData.cardType.Contains(Card.CardType.attack))
 					{
 						GameManager.Instance.DealDamageToOpponent(cardDisplay.cardData, droppedObject);
 					}
 					else
 					{
-						Debug.Log("Card is not of type attack. No damage dealt.");
+						Debug.Log("Card is not of type attack or question. No action taken.");
 					}
 				}
 

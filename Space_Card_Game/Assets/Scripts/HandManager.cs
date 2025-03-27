@@ -12,7 +12,7 @@ public class HandManager : MonoBehaviour
 	public float cardSpacing = 100f;
 	public float verticalSpacing = 100f;
 	public int maxHandSize = 6;
-	public List<GameObject> cardsInHand = new List<GameObject>(); 
+	public List<GameObject> cardsInHand = new List<GameObject>();
 	private DeckManager deckManager;
 
 	void Start()
@@ -22,11 +22,17 @@ public class HandManager : MonoBehaviour
 
 	public void AddCardToHand(Card cardData)
 	{
-		//Instantiate the card
+		// Instantiate the card
 		GameObject newCard = Instantiate(cardPrefab, handTransform.position, Quaternion.identity, handTransform);
 		cardsInHand.Add(newCard);
 
-		//Set the CardData of the instantiated card
+		// Ensure CanvasGroup component is added
+		if (newCard.GetComponent<CanvasGroup>() == null)
+		{
+			newCard.AddComponent<CanvasGroup>();
+		}
+
+		// Set the CardData of the instantiated card
 		newCard.GetComponent<CardDisplay>().cardData = cardData;
 
 		UpdateHandVisuals();
@@ -78,6 +84,22 @@ public class HandManager : MonoBehaviour
 
 			//Set card position
 			cardsInHand[i].transform.localPosition = new Vector3(horizontalOffset, verticalOffset, 0f);
+		}
+	}
+
+	public void SetHandInteractable(bool interactable)
+	{
+		foreach (var card in cardsInHand)
+		{
+			CanvasGroup canvasGroup = card.GetComponent<CanvasGroup>();
+			if (canvasGroup != null)
+			{
+				canvasGroup.interactable = interactable;
+			}
+			else
+			{
+				Debug.LogWarning("CanvasGroup component not found on card object.");
+			}
 		}
 	}
 }
