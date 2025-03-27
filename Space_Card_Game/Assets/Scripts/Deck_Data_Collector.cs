@@ -4,6 +4,8 @@ using UnityEngine;
 using SkillBuildGame;
 using UnityEngine.UI;
 using TMPro;
+using UnityEditor.SearchService;
+using UnityEngine.SceneManagement;
 
 
 public class Deck_Data_Collector : MonoBehaviour
@@ -20,6 +22,7 @@ public class Deck_Data_Collector : MonoBehaviour
 
     public Button Custom_Deck_Button;
 
+    public Button Back_Button;
     public int page_number = 0;
     public TextMeshProUGUI page_text;
 
@@ -62,6 +65,7 @@ public class Deck_Data_Collector : MonoBehaviour
         Right_Button.onClick.AddListener(Right_Button_Click);
         New_Deck_Button.onClick.AddListener(New_Deck_Click);
         Default_Deck_Button.onClick.AddListener(Default_Deck_Click);
+        Back_Button.onClick.AddListener(Back_Click);
         
         Card_Slots[0].GetComponent<Button>().onClick.AddListener(() => Active_Selection(0));
         Card_Slots[1].GetComponent<Button>().onClick.AddListener(() => Active_Selection(1));
@@ -199,6 +203,13 @@ public class Deck_Data_Collector : MonoBehaviour
         {
             Card_Selected[i] = true;
         }
+    }
+
+    void Back_Click()
+    {
+
+        SceneManager.LoadScene("ChooseCourse");
+
     }
 
 }
