@@ -15,7 +15,7 @@ MonoBehaviour:
   cardName: Engineer
   cardRarity: 02000000
   manaCost: 4
-  cardDescription: Deals 3 damage Gain 3 health
+  cardDescription: Deals 3 damage
   cardImage: {fileID: -2966200626249415253, guid: 2eeb8c7999aaef94bae38e2533bf1d72, type: 3}
   effect: 3
-  cardType: 0000000001000000
+  cardType: 00000000

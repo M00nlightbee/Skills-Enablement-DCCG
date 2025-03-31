@@ -38,10 +38,49 @@ public class DragUIObject : MonoBehaviour, IDragHandler, IPointerDownHandler, IE
 
 	public void OnEndDrag(PointerEventData eventData)
 	{
-		// Check if the card dropped is question card type
-		if (cardDisplay != null && cardDisplay.cardData.cardType.Contains(Card.CardType.question))
+		//if (cardDisplay != null && cardDisplay.cardData != null)
+		//{
+		//	Card card = cardDisplay.cardData;
+		//	if (card.cardType.Contains(Card.CardType.question))
+		//	{
+		//		GameManager.Instance.HandleQuestionCardDrop(card, gameObject);
+		//	}
+		//	else if (card.cardType.Contains(Card.CardType.attack))
+		//	{
+		//		GameManager.Instance.DealDamageToOpponent(card, gameObject);
+		//	}
+		//	else if (card.cardType.Contains(Card.CardType.heal))
+		//	{
+		//		GameManager.Instance.HealPlayer(card, gameObject);
+		//	}
+		//}
+	}
+
+	void OnTriggerEnter2D(Collider2D other)
+	{
+		DropArea dropArea = other.GetComponent<DropArea>();
+		if (dropArea != null)
 		{
-			GameManager.Instance.HandleQuestionCardDrop(cardDisplay.cardData, gameObject);
+			if (cardDisplay != null && cardDisplay.cardData != null)
+			{
+				Card card = cardDisplay.cardData;
+				if (card.cardType.Contains(Card.CardType.question))
+				{
+					GameManager.Instance.HandleQuestionCardDrop(card, gameObject);
+				}
+				else if (card.cardType.Contains(Card.CardType.attack))
+				{
+					GameManager.Instance.DealDamageToOpponent(card, gameObject);
+				}
+				else if (card.cardType.Contains(Card.CardType.heal))
+				{
+					GameManager.Instance.HealPlayer(card, gameObject);
+				}
+			}
 		}
 	}
+
+
+
+
 }

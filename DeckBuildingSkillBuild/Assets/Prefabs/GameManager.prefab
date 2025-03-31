@@ -47,6 +47,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 344875c0a60ca1f4590bb4055664ab1c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  endTurnButton: {fileID: 0}
+  drawCardButton: {fileID: 0}
 --- !u!1001 &1914556512153845598
 PrefabInstance:
   m_ObjectHideFlags: 0

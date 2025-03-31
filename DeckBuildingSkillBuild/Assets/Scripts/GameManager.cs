@@ -19,6 +19,7 @@ public class GameManager : MonoBehaviour
 	private HealthUI playerHealthUI;
 	private HealthUI opponentHealthUI;
 	private HandManager handManager;
+	private OpponentHandManager opponentHandManager;
 	private bool isPlayerTurn = true;
 
 	// Mana System
@@ -30,13 +31,10 @@ public class GameManager : MonoBehaviour
 	private ManaUI opponentManaUI;
 
 	public Button endTurnButton;
+	public Button drawCardButton;
 	private DeckManager deckManager;
 
 	private static System.Random random = new System.Random();
-
-	//reference number of correct answers by player from Questions.cs
-	private int correctAnswers = Questions.correctAnswers;
-
 
 	private void Awake()
 	{
@@ -48,6 +46,7 @@ public class GameManager : MonoBehaviour
 			playerManaUI = GameObject.Find("PlayerManaText").GetComponent<ManaUI>();
 			opponentManaUI = GameObject.Find("OpponentManaText").GetComponent<ManaUI>();
 			handManager = FindAnyObjectByType<HandManager>();
+			opponentHandManager = FindAnyObjectByType<OpponentHandManager>();
 			deckManager = FindAnyObjectByType<DeckManager>();
 
 			// Set initial health values
@@ -61,6 +60,9 @@ public class GameManager : MonoBehaviour
 			// Assign the button click event
 			endTurnButton = GameObject.Find("EndTurnButton").GetComponent<Button>();
 			endTurnButton.onClick.AddListener(OnEndTurnButtonClick);
+
+			// Find the draw card button
+			drawCardButton = GameObject.Find("DrawCardButton").GetComponent<Button>();
 		}
 		else
 		{
@@ -72,7 +74,7 @@ public class GameManager : MonoBehaviour
 	{
 		// Draw a card from the deck
 		Card drawnCard = deckManager.allCards[random.Next(0, deckManager.allCards.Count)];
-		GameObject cardObject = Instantiate(handManager.cardPrefab);
+		GameObject cardObject = Instantiate(opponentHandManager.cardPrefab);
 
 		// Ensure CanvasGroup component is added
 		if (cardObject.GetComponent<CanvasGroup>() == null)
@@ -91,6 +93,10 @@ public class GameManager : MonoBehaviour
 			Debug.LogError("CardDisplay component not found on card object.");
 		}
 
+		// Set the card's position and parent
+		cardObject.transform.SetParent(opponentHandManager.opponentHandPanel, false);
+		cardObject.transform.localPosition = Vector3.zero;
+
 		// Call EndTurn with the drawn card and cardObject
 		EndTurn(drawnCard, cardObject);
 	}
@@ -100,17 +106,29 @@ public class GameManager : MonoBehaviour
 		// Disable player's hand UI
 		handManager.SetHandInteractable(false);
 
-		// Get all attack and heal cards from the deck
-		List<Card> attackAndHealCards = deckManager.allCards
+		// Disable the draw card button
+		drawCardButton.interactable = false;
+
+		// Disable end turn button
+		endTurnButton.interactable = false;
+
+		// Get all attack and heal cards from the opponent's hand
+		List<Card> attackAndHealCards = opponentHandManager.cardsInHand
+			.Select(cardObject => cardObject.GetComponent<CardDisplay>().cardData)
 			.Where(card => card.cardType.Contains(Card.CardType.attack) || card.cardType.Contains(Card.CardType.heal))
 			.ToList();
 
-		// Shuffle the list and take 3 random cards
-		List<Card> randomCards = attackAndHealCards.OrderBy(x => random.Next()).Take(3).ToList();
+		Debug.Log("Opponent has " + attackAndHealCards.Count + " attack and heal cards.");
+
+		bool cardPlayed = false;
+
+		// Shuffle the list and take a random card
+		List<Card> randomCards = attackAndHealCards.OrderBy(x => random.Next()).Take(1).ToList();
 
 		foreach (Card card in randomCards)
 		{
-			GameObject cardObject = Instantiate(handManager.cardPrefab);
+			GameObject cardObject = opponentHandManager.cardsInHand
+				.FirstOrDefault(obj => obj.GetComponent<CardDisplay>().cardData == card);
 
 			// Ensure CanvasGroup component is added
 			if (cardObject.GetComponent<CanvasGroup>() == null)
@@ -118,17 +136,7 @@ public class GameManager : MonoBehaviour
 				cardObject.AddComponent<CanvasGroup>();
 			}
 
-			CardDisplay cardDisplay = cardObject.GetComponent<CardDisplay>();
-			if (cardDisplay != null)
-			{
-				cardDisplay.SetCard(card);
-			}
-			else
-			{
-				Debug.LogError("CardDisplay component not found on card object.");
-			}
-
-			//check if opponent has enough mana to play the card
+			// Check if opponent has enough mana to play the card
 			if (opponentMana >= card.manaCost)
 			{
 				// Play the card
@@ -136,6 +144,11 @@ public class GameManager : MonoBehaviour
 				{
 					// Opponent plays attack card in player's drop area
 					SpawnCardInDropArea(card, cardObject, "PlayerDropArea");
+
+					// Delete cardObject placed on PlayerDropArea after 1 second
+					yield return new WaitForSeconds(1);
+					Destroy(GameObject.Find("PlayerDropArea").transform.GetChild(1).gameObject);
+
 					// Update player's health
 					playerHealth -= card.effect;
 					playerHealth = Mathf.Clamp(playerHealth, 0, maxHealth);
@@ -151,6 +164,7 @@ public class GameManager : MonoBehaviour
 				{
 					// Opponent plays heal card in opponent's drop area
 					SpawnCardInDropArea(card, cardObject, "OpponentDropArea");
+
 					// Update opponent's health
 					opponentHealth += card.effect;
 					opponentHealth = Mathf.Clamp(opponentHealth, 0, maxHealth);
@@ -161,16 +175,35 @@ public class GameManager : MonoBehaviour
 					opponentManaUI.UpdateManaUI(opponentMana);
 					// Check health status
 					CheckHealthStatus();
+
+					yield return new WaitForSeconds(1);
+					Destroy(GameObject.Find("OpponentDropArea").transform.GetChild(1).gameObject);
 				}
-				// Remove the card from hand and destroy it after a delay
-				yield return StartCoroutine(RemoveAndDestroyCardAfterDelay(cardObject, 1.0f));
-				// Wait for a short delay between each card play
-				yield return new WaitForSeconds(1.0f);
+
+				cardPlayed = true;
 			}
 		}
 
+		if (!cardPlayed)
+		{
+			Debug.Log("Opponent could not play any card. Switching turn back to player.");
+		}
+
+		UpdatePlayerMana();
+
 		// Re-enable player's hand UI
 		handManager.SetHandInteractable(true);
+
+		// Re-enable the draw card button
+		drawCardButton.interactable = true;
+
+		// Enable end turn button
+		endTurnButton.interactable = true;
+
+		// Switch turn back to player
+		isPlayerTurn = true;
+
+		yield break;
 	}
 
 	public void EndTurn(Card card, GameObject cardObject)
@@ -178,9 +211,14 @@ public class GameManager : MonoBehaviour
 		// Switch turn
 		isPlayerTurn = !isPlayerTurn;
 
+		// Disable the draw card button if it is the opponent's turn
+		//drawCardButton.interactable = isPlayerTurn;
+
 		// Check card type and spawn in the appropriate area
 		if (isPlayerTurn)
 		{
+			//disable opponent's hand
+			opponentHandManager.SetHandInteractable(false);
 			if (card.cardType.Contains(Card.CardType.attack))
 			{
 				DealDamageToOpponent(card, cardObject);
@@ -199,6 +237,7 @@ public class GameManager : MonoBehaviour
 		else
 		{
 			StartCoroutine(OpponentPlayRandomCards());
+			UpdateOpponentMana();
 		}
 	}
 
@@ -210,17 +249,8 @@ public class GameManager : MonoBehaviour
 		// Instantiate the card in the drop area
 		GameObject newCard = Instantiate(cardObject, dropArea.position, Quaternion.identity, dropArea);
 		newCard.GetComponent<CardDisplay>().SetCard(card);
+
 	}
-
-	private IEnumerator RemoveAndDestroyCardAfterDelay(GameObject cardObject, float delay)
-	{
-		yield return new WaitForSeconds(delay);
-
-		// Remove the card from hand and destroy it
-		handManager.RemoveCardFromHand(cardObject);
-		Destroy(cardObject);
-	}
-
 	public void DealDamageToOpponent(Card card, GameObject cardObject)
 	{
 		// Check if the card type before dealing damage
@@ -289,7 +319,6 @@ public class GameManager : MonoBehaviour
 				handManager.RemoveCardFromHand(cardObject);
 				Destroy(cardObject);
 			}
-	;
 		}
 		else
 		{
@@ -316,12 +345,10 @@ public class GameManager : MonoBehaviour
 			playerMana = Mathf.Clamp(playerMana, 0, maxMana);
 			playerManaUI.UpdateManaUI(playerMana);
 
-			GetPlayerMana();
+			// GetPlayerMana();
 
 			// Set the number of questions to ask based on the card's mana cost value
 			Questions.totalQuestionsToAsk = card.manaCost == 0 ? 2 : card.manaCost;
-
-			StartCoroutine(LoadQuestionScene());
 
 			handManager.RemoveCardFromHand(cardObject);
 			Destroy(cardObject);
@@ -330,15 +357,13 @@ public class GameManager : MonoBehaviour
 		{
 			Debug.Log("Unable to load QuestionScene");
 		}
-	}
 
-	private IEnumerator LoadQuestionScene()
-	{
 		// Pause the game
 		Time.timeScale = 0;
 
 		// Load the question scene additively
-		yield return SceneManager.LoadSceneAsync("Question_Display", LoadSceneMode.Additive);
+		SceneManager.LoadSceneAsync("Question_Display", LoadSceneMode.Additive);
+
 	}
 
 	private void CheckHealthStatus()
@@ -353,16 +378,23 @@ public class GameManager : MonoBehaviour
 		}
 	}
 
-	//// update player's mana after answering questions
-	//public void UpdatePlayerMana()
-	//{
-	//	// add to player's mana with number of correct answers
-	//	playerMana += correctAnswers;
-	//	playerMana = Mathf.Clamp(playerMana, 0, maxMana);
-	//	playerManaUI.UpdateManaUI(playerMana);
-	//}
+	// update player's mana 
+	public void UpdatePlayerMana()
+	{
+		// add to player's mana with number of correct answers
+		playerMana += manaRegen;
+		playerMana = Mathf.Clamp(playerMana, 0, maxMana);
+		playerManaUI.UpdateManaUI(playerMana);
+	}
 
-	// Handle updating opponent's mana function
+	public void SetPlayerMana(int newMana)
+{
+    playerMana = Mathf.Clamp(newMana, 0, maxMana);
+    playerManaUI.UpdateManaUI(playerMana);
+}
+
+
+	// updating opponent's mana
 	public void UpdateOpponentMana()
 	{
 		opponentMana += manaRegen;

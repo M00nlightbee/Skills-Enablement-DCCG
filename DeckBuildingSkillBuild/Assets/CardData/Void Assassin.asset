@@ -15,7 +15,7 @@ MonoBehaviour:
   cardName: Void Assassin
   cardRarity: 04000000
   manaCost: 6
-  cardDescription: Deals 7 damage Gain 2 health
+  cardDescription: Deals 7 damage
   cardImage: {fileID: 8288426215254106694, guid: cc6a04908b517024196071969fe6a702, type: 3}
   effect: 7
-  cardType: 0000000001000000
+  cardType: 00000000

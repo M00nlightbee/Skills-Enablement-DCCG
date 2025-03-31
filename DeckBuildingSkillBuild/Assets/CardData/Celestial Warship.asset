@@ -15,7 +15,7 @@ MonoBehaviour:
   cardName: Celestial Warship
   cardRarity: 04000000
   manaCost: 9
-  cardDescription: Deals 9 damage Gain 5 health
+  cardDescription: Deals 9 damage
   cardImage: {fileID: -6470460504253458178, guid: 41d7bcee7ddddf948b1404d04fcd4201, type: 3}
   effect: 9
-  cardType: 0000000001000000
+  cardType: 00000000

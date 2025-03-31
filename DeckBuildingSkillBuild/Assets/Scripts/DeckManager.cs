@@ -1,60 +1,3 @@
-//using System.Collections;
-//using System.Collections.Generic;
-//using NUnit.Framework;
-//using UnityEngine;
-//using SkillBuildGame;
-
-//public class DeckManager : MonoBehaviour
-//{
-//	public List<Card> allCards = new List<Card>();
-
-//	public int startingHandSize = 4;
-
-//	private int currentIndex = 0;
-//	public int maxHandSize;
-//	public int currentHandSize;
-//	private HandManager handManager;
-
-//	void Start()
-//	{
-//		//Load all card assets from the Resources folder
-//		Card[] cards = Resources.LoadAll<Card>("Cards");
-
-//		//Add the loaded cards to the allCards list
-//		allCards.AddRange(cards);
-
-//		handManager = FindAnyObjectByType<HandManager>();
-//		maxHandSize = handManager.maxHandSize;
-//		for (int i = 0; i < startingHandSize; i++)
-//		{
-//			Debug.Log($"Drawing Card");
-//			DrawCard(handManager);
-//		}
-
-//	}
-
-//	void Update()
-//	{
-//		if (handManager != null)
-//		{
-//			currentHandSize = handManager.cardsInHand.Count;
-//		}
-//	}
-
-//	public void DrawCard(HandManager handManager)
-//	{
-//		if (allCards.Count == 0)
-//			return;
-
-//		if (currentHandSize < maxHandSize)
-//		{
-//			Card nextCard = allCards[currentIndex];
-//			handManager.AddCardToHand(nextCard);
-//			currentIndex = (currentIndex + 1) % allCards.Count;
-//		}
-//	}
-//}
-
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -69,6 +12,7 @@ public class DeckManager : MonoBehaviour
 	public int maxHandSize;
 	public int currentHandSize;
 	private HandManager handManager;
+	private OpponentHandManager opponentHandManager;
 
 	void Start()
 	{
@@ -77,16 +21,24 @@ public class DeckManager : MonoBehaviour
 		allCards.AddRange(cards);
 
 		handManager = FindAnyObjectByType<HandManager>();
+		opponentHandManager = FindAnyObjectByType<OpponentHandManager>();
 		maxHandSize = handManager.maxHandSize;
 
-		// Draw starting hand
+		// Draw starting hand for player
 		for (int i = 0; i < startingHandSize; i++)
 		{
 			DrawCard(handManager);
+			DrawCardForOpponent(opponentHandManager);
 		}
 
+		// Draw starting hand for opponent
+		//for (int i = 0; i < startingHandSize; i++)
+		//{
+		//	DrawCardForOpponent(opponentHandManager);
+		//}
+
 		// Ensure there's at least one Question card in hand
-		EnsureQuestionCardInHand();
+		// EnsureQuestionCardInHand();
 	}
 
 	void Update()
@@ -94,6 +46,10 @@ public class DeckManager : MonoBehaviour
 		if (handManager != null)
 		{
 			currentHandSize = handManager.cardsInHand.Count;
+		}
+		if (opponentHandManager != null)
+		{
+			currentHandSize = opponentHandManager.cardsInHand.Count;
 		}
 	}
 
@@ -106,7 +62,25 @@ public class DeckManager : MonoBehaviour
 		handManager.AddCardToHand(nextCard);
 		currentIndex = (currentIndex + 1) % allCards.Count;
 
-		EnsureQuestionCardInHand();
+		//EnsureQuestionCardInHand();
+	}
+
+	// draw card for opponent hand
+	public void DrawCardForOpponent(OpponentHandManager handManager)
+	{
+		//if (allCards.Count == 0 || handManager.cardsInHand.Count >= handManager.maxHandSize)
+		//	return;
+
+		//Card nextCard = allCards[currentIndex];
+		//handManager.AddCardToHand(nextCard);
+		//currentIndex = (currentIndex + 1) % allCards.Count;
+
+		if (allCards.Count == 0 || currentHandSize >= maxHandSize)
+			return;
+
+		Card nextCard = allCards[currentIndex];
+		handManager.AddCardToHand(nextCard);
+		currentIndex = (currentIndex + 1) % allCards.Count;
 	}
 
 	public Card GetQuestionCard()
@@ -114,19 +88,19 @@ public class DeckManager : MonoBehaviour
 		return allCards.Find(card => card.cardType.Contains(Card.CardType.question));
 	}
 
-	private void EnsureQuestionCardInHand()
-	{
-		bool hasQuestionCard = handManager.cardsInHand.Exists(card =>
-			card.GetComponent<CardDisplay>().cardData.cardType.Contains(Card.CardType.question));
+	//private void EnsureQuestionCardInHand()
+	//{
+	//	bool hasQuestionCard = handManager.cardsInHand.Exists(card =>
+	//		card.GetComponent<CardDisplay>().cardData.cardType.Contains(Card.CardType.question));
 
-		if (!hasQuestionCard)
-		{
-			Card questionCard = GetQuestionCard();
-			if (questionCard != null)
-			{
-				handManager.AddCardToHand(questionCard);
-			}
-		}
-	}
+	//	if (!hasQuestionCard)
+	//	{
+	//		Card questionCard = GetQuestionCard();
+	//		if (questionCard != null)
+	//		{
+	//			handManager.AddCardToHand(questionCard);
+	//		}
+	//	}
+	//}
 }
 

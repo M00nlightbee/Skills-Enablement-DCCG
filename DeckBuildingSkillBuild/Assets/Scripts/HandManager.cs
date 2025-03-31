@@ -22,6 +22,9 @@ public class HandManager : MonoBehaviour
 
 	public void AddCardToHand(Card cardData)
 	{
+		if (cardsInHand.Count >= maxHandSize)
+			return;
+
 		// Instantiate the card
 		GameObject newCard = Instantiate(cardPrefab, handTransform.position, Quaternion.identity, handTransform);
 		cardsInHand.Add(newCard);

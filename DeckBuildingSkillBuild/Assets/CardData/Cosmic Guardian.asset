@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardName: Cosmic Guardian
   cardRarity: 01000000
-  manaCost: 3
-  cardDescription: Gain 8 mana
+  manaCost: 0
+  cardDescription: Gain 2 mana
   cardImage: {fileID: 4113829005332862926, guid: fc5210d193b94b346a4e2576f3deddb7, type: 3}
-  effect: 8
+  effect: 2
   cardType: 02000000
