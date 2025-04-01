@@ -21,6 +21,8 @@ public class GameManager : MonoBehaviour
 	private HandManager handManager;
 	private OpponentHandManager opponentHandManager;
 	private bool isPlayerTurn = true;
+	//public GameObject bulletPrefab;
+	//public Transform bulletSpawn;
 
 	// Mana System
 	private int playerMana = 3;
@@ -264,6 +266,19 @@ public class GameManager : MonoBehaviour
 			}
 			else
 			{
+				//// Ensure bulletSpawn is assigned
+				//if (bulletSpawn == null)
+				//{
+				//	Debug.LogError("bulletSpawn is not assigned.");
+				//	return;
+				//}
+
+				
+
+				//// Shoot a bullet
+				//Debug.Log("Spawning bullet at: " + bulletSpawn.position);
+	
+
 				opponentHealth -= card.effect;
 				opponentHealth = Mathf.Clamp(opponentHealth, 0, maxHealth);
 				Debug.Log($"Dealing {card.effect} damage to the opponent's ship. New health: {opponentHealth}");
@@ -281,7 +296,6 @@ public class GameManager : MonoBehaviour
 				handManager.RemoveCardFromHand(cardObject);
 				Destroy(cardObject);
 			}
-
 		}
 		else
 		{
@@ -328,10 +342,8 @@ public class GameManager : MonoBehaviour
 
 	public void HandleQuestionCardDrop(Card card, GameObject cardObject)
 	{
-		// check if card dropped is of type question
 		if (card.cardType.Contains(Card.CardType.question))
 		{
-			// check if player has enough mana before loading the question scene
 			if (!CheckMana(card))
 			{
 				Debug.Log("Not enough mana to play the card.");
@@ -345,10 +357,18 @@ public class GameManager : MonoBehaviour
 			playerMana = Mathf.Clamp(playerMana, 0, maxMana);
 			playerManaUI.UpdateManaUI(playerMana);
 
-			// GetPlayerMana();
+			// Set the number of questions to ask based on the card's effect value
+			Questions.totalQuestionsToAsk = card.effect;
 
-			// Set the number of questions to ask based on the card's mana cost value
-			Questions.totalQuestionsToAsk = card.manaCost == 0 ? 2 : card.manaCost;
+			Debug.Log($"Total Questions to Ask set to: {Questions.totalQuestionsToAsk}");
+
+			//// Ensure the cardDisplay is set correctly
+			//Questions questionsComponent = FindAnyObjectByType<Questions>();
+			//if (questionsComponent != null)
+			//{
+			//	questionsComponent.cardDisplay = cardObject.GetComponent<CardDisplay>();
+			//	Debug.Log($"CardDisplay set with effect: {questionsComponent.cardDisplay.cardData.effect}");
+			//}
 
 			handManager.RemoveCardFromHand(cardObject);
 			Destroy(cardObject);
@@ -363,7 +383,6 @@ public class GameManager : MonoBehaviour
 
 		// Load the question scene additively
 		SceneManager.LoadSceneAsync("Question_Display", LoadSceneMode.Additive);
-
 	}
 
 	private void CheckHealthStatus()
@@ -387,11 +406,18 @@ public class GameManager : MonoBehaviour
 		playerManaUI.UpdateManaUI(playerMana);
 	}
 
-	public void SetPlayerMana(int newMana)
-{
-    playerMana = Mathf.Clamp(newMana, 0, maxMana);
-    playerManaUI.UpdateManaUI(playerMana);
-}
+	// update player's mana with number of correct answers
+	public void UpdatePlayerManaWithCorrectAnswers()
+	{
+		// Add to player's mana with the number of correct answers
+		playerMana += Questions.correctAnswers;
+		playerMana = Mathf.Clamp(playerMana, 0, maxMana);
+		playerManaUI.UpdateManaUI(playerMana);
+
+		// Reset correctAnswers after updating mana
+		Questions.correctAnswers = 0;
+	}
+
 
 
 	// updating opponent's mana
