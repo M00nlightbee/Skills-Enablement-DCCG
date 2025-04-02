@@ -6,10 +6,8 @@
   </a>
   <h3 align="center">Skills Enablement Digital Collectible Card Game</h3>
   <p align="center">
-    A strategic card game to make learning engaging and fun!
-    <br />
+    A strategic card game to make learning engaging and fun! <br />
     <strong>Built with Unity • Backed by IBM SkillsBuild</strong>
-    <br />
   </p>
 </div>
 
@@ -17,12 +15,10 @@
 
 ## 📌 Table of Contents
 
-- [About the Project](#about-the-project)
-- [Key Features](#key-features)
-- [Wireframes](#wireframes)
-- [Technologies Used](#technologies-used)
-- [Game Flow](#game-flow)
-- [Setup & Contribution](#setup--contribution)
+- [About the Project](https://docs.google.com/document/d/14BMKRUqbnrAMTLlWKWsAzZeuF36g5QbhpxTpNvQdBx4/edit?usp=sharing)
+- [Wireframes](https://www.figma.com/proto/6WOWbbwzxDDswA4TzgWmtG/Game-Prototype?page-id=0%3A1&node-id=41-977&p=f&viewport=214%2C-45%2C0.13&scaling=contain&content-scaling=fixed&starting-point-node-id=41%3A977)
+- [Technologies Used](unity)
+- [Setup & Contribution](https://docs.google.com/spreadsheets/d/1fRxqnhXQwdFaecKXvoc00vQLJi6LUtpT/edit?usp=sharing&ouid=118032988175777550465&rtpof=true&sd=true)
 - [License](#license)
 
 ---
@@ -31,13 +27,15 @@
 
 The **Skills Enablement Digital Collectible Card Game (DCCG)** is a turn-based Unity game that combines knowledge testing and strategy. Players earn and use cards by correctly answering quiz questions from **IBM SkillsBuild modules** on AI, Cybersecurity, Cloud, and Data Science. It transforms learning into a game where **education is power**.
 
+Read more in our [Project Overview](https://docs.google.com/document/d/14BMKRUqbnrAMTLlWKWsAzZeuF36g5QbhpxTpNvQdBx4/edit?usp=sharing).
+
 ---
 
 ## 🔑 Key Features
 
 - 🎴 Turn-based strategy card battles
 - 📚 Earn mana by answering IBM SkillsBuild questions
-- ⚔️ Attack & Heal cards 
+- ⚔️ Attack & Heal cards with visual feedback (laser, glow effects)
 - 🔄 Drag-and-drop gameplay with AI-based opponent turns
 - 🧠 Knowledge-based progression with quiz scene
 
@@ -45,53 +43,57 @@ The **Skills Enablement Digital Collectible Card Game (DCCG)** is a turn-based U
 
 ## 🔄 Development Process
 
-We used **Agile methodologies**, dividing work into sprints and tracking progress using:
-- User stories with acceptance criteria
-- Version control (GitHub)
-- Regular testing and feedback
-- Iterative implementation with working prototypes
+We followed **Agile methodologies**, including:
+- User stories with clear acceptance criteria
+- Sprints and version control with GitHub
+- Iterative feedback from team playtesting
+- Rapid prototyping and consistent UI/UX design reviews
+
+---
 
 ## 🧪 Wireframes & Design
 
-Game design includes:
-- Deck screens, turn-based game board, health/mana UI
-- Question screens between turns
-- Option scene with interactive sliders (audio)
+Visual concepts and gameplay flow:
+- 🎴 Deck screens and card mechanics
+- 💡 Health/mana UI system
+- ❓ Quiz scene integration
+- 🎚️ Audio settings with slider options
+
+▶️ [View Wireframes in Figma](https://www.figma.com/proto/6WOWbbwzxDDswA4TzgWmtG/Game-Prototype?page-id=0%3A1&node-id=41-977&p=f&viewport=214%2C-45%2C0.13&scaling=contain&content-scaling=fixed&starting-point-node-id=41%3A977)
 
 ---
 
 ## 🧰 Technologies Used
 
-- 🎮 **Unity Engine**
+- 🎮 **Unity Game Engine**
 - 💻 **Visual Studio**
-- 🔊 **IBM SkillsBuild**
-- 🧪 **Unity Test Framework (Edit Mode Unit Testing)**
+- 📦 **IBM SkillsBuild (question system)**
+- 🧪 **Unity Test Framework** (Edit Mode Unit Testing)
+- 🖼️ **Figma** (Wireframes)
+- ☁️ **GitHub** (Version Control)
 
 ---
 
 ## 🎮 Game Flow
 
 ### Player Journey
-1. Main Menu → Select character icon → play 
-2. chose AI course
-3. Player plays cards → AI responds
-4. Answer questions → Earn mana for powerful cards
-5. First to reduce enemy health to 0 wins!
+1. Load game → Select character
+2. Choose an IBM course (e.g., AI)
+3. brag and drop cards onto board
+4. Answer quiz questions to earn more mana and use better cards
+5. First to reduce opponent’s health to 0 wins
 
-### Key Mechanics
-- Mana and health bars update dynamically
-- Question cards trigger external quiz scenes
-- Turn logic cycles between player and AI
+### Core Mechanics
+- Turn-based logic (Player → AI)
+- Mana is required to play cards
+- Card types: Attack, Heal, Question
+- Health and mana update visually
+- Quiz scene opens additively on question cards
 
 ---
 
 ## 🛠️ Setup & Contribution
 
 ```bash
-git clone https://github.com/YOUR-USERNAME/DCCG-Project.git
-cd DCCG-Project
-
-
-
-
-
+# Clone the repo
+git clone https://github.com/M00nlightbee/Skills-Enablement-DCCG.git
