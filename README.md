@@ -1,7 +1,5 @@
 <a id="readme-top"></a>
 
-<!-- PROJECT LOGO -->
-<br />
 <div align="center">
   <a href="#">
     <img src="images/logo.png" alt="Logo" width="80" height="80">
@@ -10,115 +8,90 @@
   <p align="center">
     A strategic card game to make learning engaging and fun!
     <br />
-    <a href="#"><strong>Explore the docs »</strong></a>
-    <br />
+    <strong>Built with Unity • Backed by IBM SkillsBuild</strong>
     <br />
   </p>
 </div>
 
-<!-- TABLE OF CONTENTS -->
-<details>
-  <summary>Table of Contents</summary>
-  <ol>
-    <li><a href="#about-the-project">About The Project</a></li>
-    <li><a href="#key-features">Key Features</a></li>
-    <li><a href="#wireframes">Wireframes</a></li>
-    <li><a href="#technologies">Technologies</a></li>
-    <li><a href="#game-process">Game Process</a></li>
-    <li><a href="#contributing-access-project">Contributing / Access Project</a></li>
-    <li><a href="#license">License</a></li>
-  </ol>
-</details>
+---
 
-<!-- ABOUT THE PROJECT -->
-## About The Project
+## 📌 Table of Contents
 
-The **Skills Enablement Digital Collectible Card Game (DCCG)** is designed to enhance learning through **interactive and strategic gameplay**. Players collect, trade, and battle cards by answering **IBM SkillsBuild** questions covering AI, Cybersecurity, Cloud Computing, and Data Science. The game fosters engagement, making skill-building fun and competitive.
+- [About the Project](#about-the-project)
+- [Key Features](#key-features)
+- [Wireframes](#wireframes)
+- [Technologies Used](#technologies-used)
+- [Game Flow](#game-flow)
+- [Setup & Contribution](#setup--contribution)
+- [License](#license)
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+---
 
-## Key Features
-- 🎮 **Turn-based strategy card battles**.
-- 📚 **Earn cards by answering IBM SkillsBuild questions**.
-- 🏆 **Progress and rank up through challenges and leaderboards**.
-- 🌍 **Single-player functionality with player-AI interaction**.
+## 🎯 About The Project
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+The **Skills Enablement Digital Collectible Card Game (DCCG)** is a turn-based Unity game that combines knowledge testing and strategy. Players earn and use cards by correctly answering quiz questions from **IBM SkillsBuild modules** on AI, Cybersecurity, Cloud, and Data Science. It transforms learning into a game where **education is power**.
 
-## Wireframes
+---
+
+## 🔑 Key Features
+
+- 🎴 Turn-based strategy card battles
+- 📚 Earn mana by answering IBM SkillsBuild questions
+- ⚔️ Attack & Heal cards 
+- 🔄 Drag-and-drop gameplay with AI-based opponent turns
+- 🧠 Knowledge-based progression with quiz scene
+
+---
+
+## 🔄 Development Process
+
+We used **Agile methodologies**, dividing work into sprints and tracking progress using:
+- User stories with acceptance criteria
+- Version control (GitHub)
+- Regular testing and feedback
+- Iterative implementation with working prototypes
+
+## 🧪 Wireframes & Design
+
 Game design includes:
-- 🎴 **Card Deck & Upgrades**
-- 🏁 **Game Board & Turn-based Play**
-- 🏆 **Victory & Defeat Screens**
+- Deck screens, turn-based game board, health/mana UI
+- Question screens between turns
+- Option scene with interactive sliders (audio)
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+---
 
-## Technologies Used
-- **Game Engine:** Unity
-- **Development Environment:** Visual Studio
+## 🧰 Technologies Used
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+- 🎮 **Unity Engine**
+- 💻 **Visual Studio**
+- 🔊 **IBM SkillsBuild**
+- 🧪 **Unity Test Framework (Edit Mode Unit Testing)**
 
-## Game Process
-### User Journey to Play the Game
-1. **Register or Sign in**
-2. **Display Menu**
-3. **Player chooses a badge they want to learn/play**
-4. **Choose Play**
-   - Player chooses their user Icon
-   - Spawn cards from the database for player and enemy
+---
 
-### Display Game Board
-- **Player Information**
-  - Health
-  - Shields
-  - Mana
-- **Opponent Information**
-  - Health
-  - Shields
-  - Mana
-- **Game assigns a random user icon to opponent**
-- **Display cards on the board**
+## 🎮 Game Flow
 
-### Assign Cards to Player & Opponent
-- **Attack, Defend, Multiplier Cards**
-  - **[Attack]** - Select opponent or opponent’s cards to attack.
-  - **[Defend]** - Select player or player’s cards to defend.
-  - **Multiplier Card Clicked** - Outcome may result in a reward.
+### Player Journey
+1. Main Menu → Select character icon → play 
+2. chose AI course
+3. Player plays cards → AI responds
+4. Answer questions → Earn mana for powerful cards
+5. First to reduce enemy health to 0 wins!
 
-### Turn Implementation
-- Opponent should be able to make moves equivalent to the player.
-- Display screen for questions between turns.
+### Key Mechanics
+- Mana and health bars update dynamically
+- Question cards trigger external quiz scenes
+- Turn logic cycles between player and AI
 
-### Question-Based Levels
-- **Level 1:** Questions from module one.
-- **Level 2:** Questions from module two.
-- **Level 3:** Questions from module three.
-- **Level 4:** Questions from module four.
-- **Level 5:** Questions from module five.
-- **Level 6:** Questions from module six.
+---
 
-### Additional Features
-- **Display timer for each turn**
-- **Display number of turns left**
-  - Update turns left after a card is played.
+## 🛠️ Setup & Contribution
 
-### Win Condition
-- Game ends when **opponent’s health reaches zero**.
-- Game ends when **player’s health reaches zero**.
+```bash
+git clone https://github.com/YOUR-USERNAME/DCCG-Project.git
+cd DCCG-Project
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-## Contributing / Access Project
-1. Fork the Project
-2. Create your Feature Branch 
-3. Commit your Changes 
-4. Push to the Branch 
-5. Open a Pull Request
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-## License
-Distributed under the MIT License.
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
