@@ -6,7 +6,7 @@ using SkillBuildGame;
 
 public class DeckManager : MonoBehaviour
 {
-	public List<Card> allCards = new List<Card>(); // Full deck
+	public List<Card> allCards = new List<Card>();
 	public int startingHandSize = 4;
 	private int currentIndex = 0;
 	public int maxHandSize;
@@ -24,21 +24,12 @@ public class DeckManager : MonoBehaviour
 		opponentHandManager = FindAnyObjectByType<OpponentHandManager>();
 		maxHandSize = handManager.maxHandSize;
 
-		// Draw starting hand for player
+		// Draw starting hand
 		for (int i = 0; i < startingHandSize; i++)
 		{
 			DrawCard(handManager);
 			DrawCardForOpponent(opponentHandManager);
 		}
-
-		// Draw starting hand for opponent
-		//for (int i = 0; i < startingHandSize; i++)
-		//{
-		//	DrawCardForOpponent(opponentHandManager);
-		//}
-
-		// Ensure there's at least one Question card in hand
-		// EnsureQuestionCardInHand();
 	}
 
 	void Update()
@@ -61,20 +52,11 @@ public class DeckManager : MonoBehaviour
 		Card nextCard = allCards[currentIndex];
 		handManager.AddCardToHand(nextCard);
 		currentIndex = (currentIndex + 1) % allCards.Count;
-
-		//EnsureQuestionCardInHand();
 	}
 
 	// draw card for opponent hand
 	public void DrawCardForOpponent(OpponentHandManager handManager)
 	{
-		//if (allCards.Count == 0 || handManager.cardsInHand.Count >= handManager.maxHandSize)
-		//	return;
-
-		//Card nextCard = allCards[currentIndex];
-		//handManager.AddCardToHand(nextCard);
-		//currentIndex = (currentIndex + 1) % allCards.Count;
-
 		if (allCards.Count == 0 || currentHandSize >= maxHandSize)
 			return;
 
@@ -87,20 +69,5 @@ public class DeckManager : MonoBehaviour
 	{
 		return allCards.Find(card => card.cardType.Contains(Card.CardType.question));
 	}
-
-	//private void EnsureQuestionCardInHand()
-	//{
-	//	bool hasQuestionCard = handManager.cardsInHand.Exists(card =>
-	//		card.GetComponent<CardDisplay>().cardData.cardType.Contains(Card.CardType.question));
-
-	//	if (!hasQuestionCard)
-	//	{
-	//		Card questionCard = GetQuestionCard();
-	//		if (questionCard != null)
-	//		{
-	//			handManager.AddCardToHand(questionCard);
-	//		}
-	//	}
-	//}
 }
 

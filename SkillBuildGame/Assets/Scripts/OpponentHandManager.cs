@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class OpponentHandManager : MonoBehaviour
 {
-	public GameObject cardPrefab; // Assign card prefab in inspector
+	public GameObject cardPrefab;
 	public List<GameObject> cardsInHand = new List<GameObject>();
 	public int maxHandSize = 6;
 	private DeckManager deckManager;
-	public Transform opponentHandPanel; // Reference to the opponent's hand panel
+	public Transform opponentHandPanel;
 
 	private void Start()
 	{
@@ -45,8 +45,6 @@ public class OpponentHandManager : MonoBehaviour
 		{
 			cardsInHand.Remove(cardObject);
 			Destroy(cardObject);
-
-			// Draw a new card after the opponent plays a card
 			deckManager.DrawCardForOpponent(this);
 		}
 	}

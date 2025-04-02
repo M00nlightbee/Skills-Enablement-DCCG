@@ -21,10 +21,7 @@ public class GameManager : MonoBehaviour
 	private HandManager handManager;
 	private OpponentHandManager opponentHandManager;
 	private bool isPlayerTurn = true;
-	//public GameObject bulletPrefab;
-	//public Transform bulletSpawn;
 
-	// Mana System
 	private int playerMana = 3;
 	private int opponentMana = 3;
 	private const int maxMana = 10;
@@ -38,18 +35,13 @@ public class GameManager : MonoBehaviour
 
 	private static System.Random random = new System.Random();
 
-	// Reference to the Shoot component
 	private Shoot shootComponent;
 
-	// Reference to the AudioSource component
 	private AudioSource audioSource;
 
-	// Sound effect for dealing damage
 	public AudioClip damageSoundEffect;
 
-	// Reference to the opponent's ship image
 	private Image opponentShip;
-
 	public Text turnIndicatorText;
 
 	private void Awake()
@@ -73,38 +65,14 @@ public class GameManager : MonoBehaviour
 			playerManaUI.UpdateManaUI(playerMana);
 			opponentManaUI.UpdateManaUI(opponentMana);
 
-			// Assign the button click event
 			endTurnButton = GameObject.Find("EndTurnButton").GetComponent<Button>();
-			if (endTurnButton == null)
-			{
-				Debug.LogError("EndTurnButton is not assigned in the Inspector.");
-				return;
-			}
 			endTurnButton.onClick.AddListener(OnEndTurnButtonClick);
 
-			// Find the Shoot component
 			shootComponent = FindAnyObjectByType<Shoot>();
-			if (shootComponent == null)
-			{
-				Debug.LogError("Shoot component not found in the scene.");
-				return;
-			}
 
-			// Find the AudioSource component
 			audioSource = GetComponent<AudioSource>();
-			if (audioSource == null)
-			{
-				Debug.LogError("AudioSource component not found on GameManager.");
-				return;
-			}
 
-			// Find the opponent's ship image
 			opponentShip = GameObject.Find("OpponentShip").GetComponent<Image>();
-			if (opponentShip == null)
-			{
-				Debug.LogError("OpponentShip image not found in the scene.");
-				return;
-			}
 
 			turnIndicatorText = GameObject.Find("TurnIndicatorText").GetComponent<Text>();
 			UpdateTurnIndicator();
@@ -149,13 +117,9 @@ public class GameManager : MonoBehaviour
 
 	private IEnumerator OpponentPlayRandomCards()
 	{
-		// Disable player's hand UI
+		// Disable player's UI
 		handManager.SetHandInteractable(false);
-
-		// Disable the draw card button
 		drawCardButton.interactable = false;
-
-		// Disable end turn button
 		endTurnButton.interactable = false;
 
 		// Get all attack and heal cards from the opponent's hand
@@ -305,16 +269,7 @@ public class GameManager : MonoBehaviour
 			}
 			else
 			{
-				//// Ensure bulletSpawn is assigned
-				//if (bulletSpawn == null)
-				//{
-				//    Debug.LogError("bulletSpawn is not assigned.");
-				//    return;
-				//}
-
-				// Call the Shoot method to spawn a bullet
 				shootComponent.ShootBullet();
-
 				// Play the damage sound effect
 				if (damageSoundEffect != null)
 				{
@@ -415,14 +370,6 @@ public class GameManager : MonoBehaviour
 
 			Debug.Log($"Total Questions to Ask set to: {Questions.totalQuestionsToAsk}");
 
-			//// Ensure the cardDisplay is set correctly
-			//Questions questionsComponent = FindAnyObjectByType<Questions>();
-			//if (questionsComponent != null)
-			//{
-			//    questionsComponent.cardDisplay = cardObject.GetComponent<CardDisplay>();
-			//    Debug.Log($"CardDisplay set with effect: {questionsComponent.cardDisplay.cardData.effect}");
-			//}
-
 			handManager.RemoveCardFromHand(cardObject);
 			Destroy(cardObject);
 		}
@@ -433,8 +380,6 @@ public class GameManager : MonoBehaviour
 
 		// Pause the game
 		Time.timeScale = 0;
-
-		// Load the question scene additively
 		SceneManager.LoadSceneAsync("Question_Display", LoadSceneMode.Additive);
 	}
 
@@ -472,7 +417,6 @@ public class GameManager : MonoBehaviour
 	// update player's mana 
 	public void UpdatePlayerMana()
 	{
-		// add to player's mana with number of correct answers
 		playerMana += manaRegen;
 		playerMana = Mathf.Clamp(playerMana, 0, maxMana);
 		playerManaUI.UpdateManaUI(playerMana);
