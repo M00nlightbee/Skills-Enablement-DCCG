@@ -40,8 +40,10 @@ public class GameManager : MonoBehaviour
 	private AudioSource audioSource;
 
 	public AudioClip damageSoundEffect;
+	public AudioClip healSoundEffect;
 
 	private Image opponentShip;
+	private Image playerShip;
 	public Text turnIndicatorText;
 
 	private void Awake()
@@ -73,6 +75,7 @@ public class GameManager : MonoBehaviour
 			audioSource = GetComponent<AudioSource>();
 
 			opponentShip = GameObject.Find("OpponentShip").GetComponent<Image>();
+			playerShip = GameObject.Find("PlayerShip").GetComponent<Image>();
 
 			turnIndicatorText = GameObject.Find("TurnIndicatorText").GetComponent<Text>();
 			UpdateTurnIndicator();
@@ -276,13 +279,13 @@ public class GameManager : MonoBehaviour
 					audioSource.PlayOneShot(damageSoundEffect);
 				}
 
-				// Make the opponent's ship image glow red
-				StartCoroutine(GlowOpponentShip(Color.red, 0.5f));
-
 				opponentHealth -= card.effect;
 				opponentHealth = Mathf.Clamp(opponentHealth, 0, maxHealth);
 				Debug.Log($"Dealing {card.effect} damage to the opponent's ship. New health: {opponentHealth}");
 				opponentHealthUI.UpdateHealthUI(opponentHealth);
+
+				// Make the opponent's ship image glow red
+				StartCoroutine(GlowShip(opponentShip, Color.red, 0.5f));
 
 				// Update player's mana
 				playerMana -= card.manaCost;
@@ -303,13 +306,15 @@ public class GameManager : MonoBehaviour
 		}
 	}
 
-	private IEnumerator GlowOpponentShip(Color color, float duration)
+	private IEnumerator GlowShip(Image ship, Color color, float duration)
 	{
-		Color originalColor = opponentShip.color;
-		opponentShip.color = color;
+		Color originalColor = ship.color;
+		ship.color = color;
 		yield return new WaitForSeconds(duration);
-		opponentShip.color = originalColor;
+		ship.color = originalColor;
 	}
+
+
 
 	public void HealPlayer(Card card, GameObject cardObject)
 	{
@@ -328,6 +333,9 @@ public class GameManager : MonoBehaviour
 				playerHealth = Mathf.Clamp(playerHealth, 0, maxHealth);
 				Debug.Log($"Healing player by {card.effect}. New health: {playerHealth}");
 				playerHealthUI.UpdateHealthUI(playerHealth);
+
+				// Make the player's ship image glow red
+				StartCoroutine(GlowShip(playerShip, Color.green, 0.5f));
 
 				// Update player's mana after healing
 				playerMana -= card.manaCost;
