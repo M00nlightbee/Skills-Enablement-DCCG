@@ -41,6 +41,7 @@ public class DropArea : MonoBehaviour, IDropHandler
 					else
 					{
 						Debug.Log("Card is not of type attack or question. No action taken.");
+						FindAnyObjectByType<MessageDisplay>().ShowMessage(" Cannot play heal card on opponent ship ", 3f);
 					}
 				}
 

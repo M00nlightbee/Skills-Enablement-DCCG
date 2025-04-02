@@ -38,7 +38,22 @@ public class DragUIObject : MonoBehaviour, IDragHandler, IPointerDownHandler, IE
 
 	public void OnEndDrag(PointerEventData eventData)
 	{
-		// holder for future code
+		//if (cardDisplay != null && cardDisplay.cardData != null)
+		//{
+		//	Card card = cardDisplay.cardData;
+		//	if (card.cardType.Contains(Card.CardType.question))
+		//	{
+		//		GameManager.Instance.HandleQuestionCardDrop(card, gameObject);
+		//	}
+		//	else if (card.cardType.Contains(Card.CardType.attack))
+		//	{
+		//		GameManager.Instance.DealDamageToOpponent(card, gameObject);
+		//	}
+		//	else if (card.cardType.Contains(Card.CardType.heal))
+		//	{
+		//		GameManager.Instance.HealPlayer(card, gameObject);
+		//	}
+		//}
 	}
 
 	void OnTriggerEnter2D(Collider2D other)
@@ -64,4 +79,8 @@ public class DragUIObject : MonoBehaviour, IDragHandler, IPointerDownHandler, IE
 			}
 		}
 	}
+
+
+
+
 }

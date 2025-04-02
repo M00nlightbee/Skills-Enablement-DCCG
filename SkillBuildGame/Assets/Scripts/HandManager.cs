@@ -6,8 +6,8 @@ using System;
 
 public class HandManager : MonoBehaviour
 {
-	public GameObject cardPrefab;
-	public Transform handTransform;
+	public GameObject cardPrefab; //Assign card prefab in inspector
+	public Transform handTransform; //Root of the hand position
 	public float fanSpread = 7.5f;
 	public float cardSpacing = 100f;
 	public float verticalSpacing = 100f;
@@ -48,6 +48,8 @@ public class HandManager : MonoBehaviour
 			cardsInHand.Remove(cardObject);
 			Destroy(cardObject);
 			UpdateHandVisuals();
+
+			// Draw a new card after playing
 			deckManager.DrawCard(this);
 		}
 	}

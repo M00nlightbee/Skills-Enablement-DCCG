@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
+using System.IO;
 
 public class Change_Icon : MonoBehaviour
 {
@@ -9,11 +10,13 @@ public class Change_Icon : MonoBehaviour
     private int position;
      public Button Next_button;
     public Button Back_button;
+    public Button Select_button;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         Back_button.onClick.AddListener(BackOption);
         Next_button.onClick.AddListener(NextOption);
+        Select_button.onClick.AddListener(Write_To_File);
     }
 
     // Update is called once per frame
@@ -38,4 +41,17 @@ public class Change_Icon : MonoBehaviour
             Character_Icon.texture = Character_Array[position];
             }
     }
+
+    void Write_To_File()
+    {
+
+        using (StreamWriter sw = new StreamWriter("Assets/Character_Choice.csv", false))
+            {
+                sw.Write(position);
+                sw.Close();
+            }
+
+    }
+
+
 }

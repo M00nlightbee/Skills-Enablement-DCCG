@@ -200,6 +200,8 @@ public class GameManager : MonoBehaviour
 		if (!cardPlayed)
 		{
 			Debug.Log("Opponent could not play any card. Switching turn back to player.");
+			FindAnyObjectByType<MessageDisplay>().ShowMessage("Opponent could not play any card. Switching turn back to player", 3f);
+
 		}
 
 		UpdatePlayerMana();
@@ -268,6 +270,7 @@ public class GameManager : MonoBehaviour
 			if (!CheckMana(card))
 			{
 				Debug.Log("Not enough mana to play the card.");
+				FindAnyObjectByType<MessageDisplay>().ShowMessage(" Not enough mana to play the card ", 3f);
 				return;
 			}
 			else
@@ -303,17 +306,43 @@ public class GameManager : MonoBehaviour
 		else
 		{
 			Debug.Log("Card is not of type attack. No action taken.");
+			FindAnyObjectByType<MessageDisplay>().ShowMessage(" Card is not of type attack. No action taken ", 3f);
 		}
 	}
+
+	//private IEnumerator GlowShip(Image ship, Color color, float duration)
+	//{
+	//	Color originalColor = ship.color;
+	//	ship.color = color;
+	//	yield return new WaitForSeconds(duration);
+	//	ship.color = originalColor;
+	//}
+
 
 	private IEnumerator GlowShip(Image ship, Color color, float duration)
 	{
 		Color originalColor = ship.color;
-		ship.color = color;
-		yield return new WaitForSeconds(duration);
-		ship.color = originalColor;
-	}
+		float halfDuration = duration / 2f;
 
+		for (int i = 0; i < 2; i++) 
+		{
+			// Fade in
+			for (float t = 0; t < halfDuration; t += Time.deltaTime)
+			{
+				ship.color = Color.Lerp(originalColor, color, t / halfDuration);
+				yield return null;
+			}
+			ship.color = color;
+
+			// Fade out
+			for (float t = 0; t < halfDuration; t += Time.deltaTime)
+			{
+				ship.color = Color.Lerp(color, originalColor, t / halfDuration);
+				yield return null;
+			}
+			ship.color = originalColor;
+		}
+	}
 
 
 	public void HealPlayer(Card card, GameObject cardObject)
@@ -325,6 +354,7 @@ public class GameManager : MonoBehaviour
 			if (!CheckMana(card))
 			{
 				Debug.Log("Not enough mana to play the card.");
+				FindAnyObjectByType<MessageDisplay>().ShowMessage(" Not enough mana to play the card ", 3f);
 				return;
 			}
 			else
@@ -353,6 +383,7 @@ public class GameManager : MonoBehaviour
 		else
 		{
 			Debug.Log("Card is not of type heal or player's health is not less than maxHealth. No healing applied.");
+			FindAnyObjectByType<MessageDisplay>().ShowMessage(" Max Health. No healing applied ", 3f);
 		}
 	}
 
@@ -363,6 +394,7 @@ public class GameManager : MonoBehaviour
 			if (!CheckMana(card))
 			{
 				Debug.Log("Not enough mana to play the card.");
+				FindAnyObjectByType<MessageDisplay>().ShowMessage(" Not enough mana to play the card ", 3f);
 				return;
 			}
 
@@ -480,5 +512,3 @@ public class GameManager : MonoBehaviour
 		return opponentMana;
 	}
 }
-
-
