@@ -227,6 +227,10 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5783390076103837742, guid: 988d30de0823a6948b1f5298a477c5b2, type: 3}
+      propertyPath: cardData
+      value: 
+      objectReference: {fileID: 11400000, guid: eabf4f90e662270408bf5217e740a81c, type: 2}
     m_RemovedComponents:
     - {fileID: 1261241414419518928, guid: 988d30de0823a6948b1f5298a477c5b2, type: 3}
     m_RemovedGameObjects: []
@@ -590,6 +594,10 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5783390076103837742, guid: 988d30de0823a6948b1f5298a477c5b2, type: 3}
+      propertyPath: cardData
+      value: 
+      objectReference: {fileID: 11400000, guid: eabf4f90e662270408bf5217e740a81c, type: 2}
     m_RemovedComponents:
     - {fileID: 1261241414419518928, guid: 988d30de0823a6948b1f5298a477c5b2, type: 3}
     m_RemovedGameObjects: []
@@ -931,6 +939,10 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5783390076103837742, guid: 988d30de0823a6948b1f5298a477c5b2, type: 3}
+      propertyPath: cardData
+      value: 
+      objectReference: {fileID: 11400000, guid: eabf4f90e662270408bf5217e740a81c, type: 2}
     m_RemovedComponents:
     - {fileID: 1261241414419518928, guid: 988d30de0823a6948b1f5298a477c5b2, type: 3}
     m_RemovedGameObjects: []
@@ -1116,6 +1128,10 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5783390076103837742, guid: 988d30de0823a6948b1f5298a477c5b2, type: 3}
+      propertyPath: cardData
+      value: 
+      objectReference: {fileID: 11400000, guid: eabf4f90e662270408bf5217e740a81c, type: 2}
     m_RemovedComponents:
     - {fileID: 1261241414419518928, guid: 988d30de0823a6948b1f5298a477c5b2, type: 3}
     m_RemovedGameObjects: []
@@ -1445,6 +1461,10 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5783390076103837742, guid: 988d30de0823a6948b1f5298a477c5b2, type: 3}
+      propertyPath: cardData
+      value: 
+      objectReference: {fileID: 11400000, guid: eabf4f90e662270408bf5217e740a81c, type: 2}
     m_RemovedComponents:
     - {fileID: 1261241414419518928, guid: 988d30de0823a6948b1f5298a477c5b2, type: 3}
     m_RemovedGameObjects: []
@@ -1922,6 +1942,10 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5783390076103837742, guid: 988d30de0823a6948b1f5298a477c5b2, type: 3}
+      propertyPath: cardData
+      value: 
+      objectReference: {fileID: 11400000, guid: eabf4f90e662270408bf5217e740a81c, type: 2}
     m_RemovedComponents:
     - {fileID: 1261241414419518928, guid: 988d30de0823a6948b1f5298a477c5b2, type: 3}
     m_RemovedGameObjects: []
@@ -2646,6 +2670,10 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5783390076103837742, guid: 988d30de0823a6948b1f5298a477c5b2, type: 3}
+      propertyPath: cardData
+      value: 
+      objectReference: {fileID: 11400000, guid: eabf4f90e662270408bf5217e740a81c, type: 2}
     m_RemovedComponents:
     - {fileID: 1261241414419518928, guid: 988d30de0823a6948b1f5298a477c5b2, type: 3}
     m_RemovedGameObjects: []
@@ -3048,6 +3076,10 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5783390076103837742, guid: 988d30de0823a6948b1f5298a477c5b2, type: 3}
+      propertyPath: cardData
+      value: 
+      objectReference: {fileID: 11400000, guid: eabf4f90e662270408bf5217e740a81c, type: 2}
     m_RemovedComponents:
     - {fileID: 1261241414419518928, guid: 988d30de0823a6948b1f5298a477c5b2, type: 3}
     m_RemovedGameObjects: []
