@@ -28,7 +28,7 @@
 
 ---
 <div align="center">
-  <img src="CardDesign.png" alt="Card Design" width="400"/>
+  <img src="GamePlay.png" alt="Card Design" width="700"height="500"/>
 </div>
 
 ## 🎯 About the Project
