@@ -119,6 +119,54 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &74365428
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 74365430}
+  - component: {fileID: 74365429}
+  m_Layer: 0
+  m_Name: Audio
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &74365429
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 74365428}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbde986311c17b64d95ee32c01863b2d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  backgroundMusic: {fileID: 8300000, guid: bce789ca5675d104fa8f3b1e4eabe95c, type: 3}
+  collisionSound: {fileID: 0}
+  damageSoundEffect: {fileID: 0}
+  healSoundEffect: {fileID: 0}
+--- !u!4 &74365430
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 74365428}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 658.1995, y: 776.6568, z: -6.235629}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &150173609
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -227,6 +275,10 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5783390076103837742, guid: 988d30de0823a6948b1f5298a477c5b2, type: 3}
+      propertyPath: cardData
+      value: 
+      objectReference: {fileID: 11400000, guid: afafb6f33a63b0e4493c5197a457b22d, type: 2}
     m_RemovedComponents:
     - {fileID: 1261241414419518928, guid: 988d30de0823a6948b1f5298a477c5b2, type: 3}
     m_RemovedGameObjects: []
@@ -590,6 +642,10 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5783390076103837742, guid: 988d30de0823a6948b1f5298a477c5b2, type: 3}
+      propertyPath: cardData
+      value: 
+      objectReference: {fileID: 11400000, guid: 11187f6a299605149b48465b6148d9c6, type: 2}
     m_RemovedComponents:
     - {fileID: 1261241414419518928, guid: 988d30de0823a6948b1f5298a477c5b2, type: 3}
     m_RemovedGameObjects: []
@@ -931,6 +987,10 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5783390076103837742, guid: 988d30de0823a6948b1f5298a477c5b2, type: 3}
+      propertyPath: cardData
+      value: 
+      objectReference: {fileID: 11400000, guid: 5ca7d8a8ca707074d9e6901ea3f4550e, type: 2}
     m_RemovedComponents:
     - {fileID: 1261241414419518928, guid: 988d30de0823a6948b1f5298a477c5b2, type: 3}
     m_RemovedGameObjects: []
@@ -1116,6 +1176,10 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5783390076103837742, guid: 988d30de0823a6948b1f5298a477c5b2, type: 3}
+      propertyPath: cardData
+      value: 
+      objectReference: {fileID: 11400000, guid: 0a5ca3f11d75a99449cc6ba8fe2a8883, type: 2}
     m_RemovedComponents:
     - {fileID: 1261241414419518928, guid: 988d30de0823a6948b1f5298a477c5b2, type: 3}
     m_RemovedGameObjects: []
@@ -1445,6 +1509,10 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5783390076103837742, guid: 988d30de0823a6948b1f5298a477c5b2, type: 3}
+      propertyPath: cardData
+      value: 
+      objectReference: {fileID: 11400000, guid: 163f41c0560c13f4980c525dfd0d1c5f, type: 2}
     m_RemovedComponents:
     - {fileID: 1261241414419518928, guid: 988d30de0823a6948b1f5298a477c5b2, type: 3}
     m_RemovedGameObjects: []
@@ -1922,6 +1990,10 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5783390076103837742, guid: 988d30de0823a6948b1f5298a477c5b2, type: 3}
+      propertyPath: cardData
+      value: 
+      objectReference: {fileID: 11400000, guid: eabf4f90e662270408bf5217e740a81c, type: 2}
     m_RemovedComponents:
     - {fileID: 1261241414419518928, guid: 988d30de0823a6948b1f5298a477c5b2, type: 3}
     m_RemovedGameObjects: []
@@ -2419,6 +2491,7 @@ GameObject:
   - component: {fileID: 1259380468}
   - component: {fileID: 1259380467}
   - component: {fileID: 1259380466}
+  - component: {fileID: 1259380469}
   m_Layer: 5
   m_Name: Back Button
   m_TagString: Untagged
@@ -2528,6 +2601,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1259380464}
   m_CullTransparentMesh: 1
+--- !u!114 &1259380469
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1259380464}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1311642bf3e4a214ea7414de72c60ffd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hoverSound: {fileID: 8300000, guid: 73d470f328692b649921fa4ee3253c46, type: 3}
+  clickSound: {fileID: 8300000, guid: e1569531f920e0e4586bfb6a684c4969, type: 3}
+  hoverColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
 --- !u!1 &1340774724 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4334176189596169428, guid: 988d30de0823a6948b1f5298a477c5b2, type: 3}
@@ -2646,6 +2734,10 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5783390076103837742, guid: 988d30de0823a6948b1f5298a477c5b2, type: 3}
+      propertyPath: cardData
+      value: 
+      objectReference: {fileID: 11400000, guid: d770ea86d0f19ef498104b7f2ab41b6e, type: 2}
     m_RemovedComponents:
     - {fileID: 1261241414419518928, guid: 988d30de0823a6948b1f5298a477c5b2, type: 3}
     m_RemovedGameObjects: []
@@ -3048,6 +3140,10 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5783390076103837742, guid: 988d30de0823a6948b1f5298a477c5b2, type: 3}
+      propertyPath: cardData
+      value: 
+      objectReference: {fileID: 11400000, guid: 6990467bc278e00469d6e8a1f8d1620f, type: 2}
     m_RemovedComponents:
     - {fileID: 1261241414419518928, guid: 988d30de0823a6948b1f5298a477c5b2, type: 3}
     m_RemovedGameObjects: []
@@ -3602,6 +3698,7 @@ GameObject:
   - component: {fileID: 1831259210}
   - component: {fileID: 1831259209}
   - component: {fileID: 1831259208}
+  - component: {fileID: 1831259211}
   m_Layer: 5
   m_Name: New_Deck_Button
   m_TagString: Untagged
@@ -3711,6 +3808,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1831259206}
   m_CullTransparentMesh: 1
+--- !u!114 &1831259211
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1831259206}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1311642bf3e4a214ea7414de72c60ffd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hoverSound: {fileID: 8300000, guid: 73d470f328692b649921fa4ee3253c46, type: 3}
+  clickSound: {fileID: 8300000, guid: e1569531f920e0e4586bfb6a684c4969, type: 3}
+  hoverColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
 --- !u!1 &1844382092
 GameObject:
   m_ObjectHideFlags: 0
@@ -3976,6 +4088,7 @@ GameObject:
   - component: {fileID: 2052261953}
   - component: {fileID: 2052261952}
   - component: {fileID: 2052261951}
+  - component: {fileID: 2052261954}
   m_Layer: 5
   m_Name: Default_Deck_Button
   m_TagString: Untagged
@@ -4085,6 +4198,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2052261949}
   m_CullTransparentMesh: 1
+--- !u!114 &2052261954
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2052261949}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1311642bf3e4a214ea7414de72c60ffd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hoverSound: {fileID: 8300000, guid: 73d470f328692b649921fa4ee3253c46, type: 3}
+  clickSound: {fileID: 8300000, guid: e1569531f920e0e4586bfb6a684c4969, type: 3}
+  hoverColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
 --- !u!1 &2071746049 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4055509199073717536, guid: 988d30de0823a6948b1f5298a477c5b2, type: 3}
@@ -4191,18 +4319,6 @@ PrefabInstance:
       value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 84860509528975050, guid: 9c16d4de39ccffa49a2d94f86d496c7a, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 9
-      objectReference: {fileID: 0}
-    - target: {fileID: 84860509528975050, guid: 9c16d4de39ccffa49a2d94f86d496c7a, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 2.117647
-      objectReference: {fileID: 0}
-    - target: {fileID: 84860509528975050, guid: 9c16d4de39ccffa49a2d94f86d496c7a, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 1.8
-      objectReference: {fileID: 0}
-    - target: {fileID: 84860509528975050, guid: 9c16d4de39ccffa49a2d94f86d496c7a, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
@@ -4250,10 +4366,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 84860509528975050, guid: 9c16d4de39ccffa49a2d94f86d496c7a, type: 3}
-      propertyPath: m_ConstrainProportionsScale
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 649988321809778441, guid: 9c16d4de39ccffa49a2d94f86d496c7a, type: 3}
       propertyPath: shown_deck
       value: 
@@ -4290,3 +4402,4 @@ SceneRoots:
   - {fileID: 674462774}
   - {fileID: 1509111903}
   - {fileID: 1844382095}
+  - {fileID: 74365430}

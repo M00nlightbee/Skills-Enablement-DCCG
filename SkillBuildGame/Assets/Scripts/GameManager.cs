@@ -37,10 +37,11 @@ public class GameManager : MonoBehaviour
 
 	private Shoot shootComponent;
 
-	private AudioSource audioSource;
-
+	private AudioManager audioManager;
+	//public AudioClip collisionSound;
 	public AudioClip damageSoundEffect;
-	public AudioClip healSoundEffect;
+	//public AudioClip healSoundEffect;
+
 
 	private Image opponentShip;
 	private Image playerShip;
@@ -72,14 +73,13 @@ public class GameManager : MonoBehaviour
 
 			shootComponent = FindAnyObjectByType<Shoot>();
 
-			audioSource = GetComponent<AudioSource>();
+			audioManager = FindAnyObjectByType<AudioManager>();
 
 			opponentShip = GameObject.Find("OpponentShip").GetComponent<Image>();
 			playerShip = GameObject.Find("PlayerShip").GetComponent<Image>();
 
 			turnIndicatorText = GameObject.Find("TurnIndicatorText").GetComponent<Text>();
 			UpdateTurnIndicator();
-
 		}
 		else
 		{
@@ -116,6 +116,7 @@ public class GameManager : MonoBehaviour
 
 		// Call EndTurn with the drawn card and cardObject
 		EndTurn(drawnCard, cardObject);
+		//UpdateTurnIndicator();
 	}
 
 	private IEnumerator OpponentPlayRandomCards()
@@ -201,7 +202,7 @@ public class GameManager : MonoBehaviour
 		{
 			Debug.Log("Opponent could not play any card. Switching turn back to player.");
 			FindAnyObjectByType<MessageDisplay>().ShowMessage("Opponent could not play any card. Switching turn back to player", 3f);
-
+			
 		}
 
 		UpdatePlayerMana();
@@ -217,6 +218,7 @@ public class GameManager : MonoBehaviour
 
 		// Switch turn back to player
 		isPlayerTurn = true;
+		UpdateTurnIndicator();
 
 		yield break;
 	}
@@ -224,7 +226,7 @@ public class GameManager : MonoBehaviour
 	public void EndTurn(Card card, GameObject cardObject)
 	{
 		isPlayerTurn = !isPlayerTurn; // Switch turn
-		UpdateTurnIndicator(); // Show turn indicator for 2 secs
+		UpdateTurnIndicator();
 
 		if (isPlayerTurn)
 		{
@@ -249,6 +251,8 @@ public class GameManager : MonoBehaviour
 			StartCoroutine(OpponentPlayRandomCards());
 			UpdateOpponentMana();
 		}
+
+		//UpdateTurnIndicator();
 	}
 
 	private void SpawnCardInDropArea(Card card, GameObject cardObject, string areaName)
@@ -276,11 +280,8 @@ public class GameManager : MonoBehaviour
 			else
 			{
 				shootComponent.ShootBullet();
-				// Play the damage sound effect
-				if (damageSoundEffect != null)
-				{
-					audioSource.PlayOneShot(damageSoundEffect);
-				}
+				// Play the damage sound effect using AudioManager
+				audioManager.PlayClip(damageSoundEffect);
 
 				opponentHealth -= card.effect;
 				opponentHealth = Mathf.Clamp(opponentHealth, 0, maxHealth);
@@ -310,21 +311,12 @@ public class GameManager : MonoBehaviour
 		}
 	}
 
-	//private IEnumerator GlowShip(Image ship, Color color, float duration)
-	//{
-	//	Color originalColor = ship.color;
-	//	ship.color = color;
-	//	yield return new WaitForSeconds(duration);
-	//	ship.color = originalColor;
-	//}
-
-
 	private IEnumerator GlowShip(Image ship, Color color, float duration)
 	{
 		Color originalColor = ship.color;
 		float halfDuration = duration / 2f;
 
-		for (int i = 0; i < 2; i++) 
+		for (int i = 0; i < 2; i++)
 		{
 			// Fade in
 			for (float t = 0; t < halfDuration; t += Time.deltaTime)
@@ -344,6 +336,26 @@ public class GameManager : MonoBehaviour
 		}
 	}
 
+
+	private void AddGlowEffect(Button button)
+	{
+		var outline = button.gameObject.GetComponent<Outline>();
+		if (outline == null)
+		{
+			outline = button.gameObject.AddComponent<Outline>();
+		}
+		outline.effectColor = Color.green;
+		outline.effectDistance = new Vector2(8, 8);
+	}
+
+	private void RemoveGlowEffect(Button button)
+	{
+		var outline = button.gameObject.GetComponent<Outline>();
+		if (outline != null)
+		{
+			Destroy(outline);
+		}
+	}
 
 	public void HealPlayer(Card card, GameObject cardObject)
 	{
@@ -423,6 +435,9 @@ public class GameManager : MonoBehaviour
 		SceneManager.LoadSceneAsync("Question_Display", LoadSceneMode.Additive);
 	}
 
+
+
+
 	private void CheckHealthStatus()
 	{
 		if (playerHealth <= minHealth)
@@ -435,6 +450,19 @@ public class GameManager : MonoBehaviour
 		}
 	}
 
+	//private void UpdateTurnIndicator()
+	//{
+	//	if (turnIndicatorText != null)
+	//	{
+	//		turnIndicatorText.gameObject.SetActive(true); // Show the indicator
+	//		turnIndicatorText.text = isPlayerTurn ? "Your Turn!" : "Opponent's Turn!";
+	//		turnIndicatorText.color = isPlayerTurn ? Color.green : Color.red;
+
+	//		// Start coroutine to hide after 2 seconds
+	//		StartCoroutine(HideTurnIndicatorAfterDelay());
+	//	}
+	//}
+
 	private void UpdateTurnIndicator()
 	{
 		if (turnIndicatorText != null)
@@ -443,14 +471,27 @@ public class GameManager : MonoBehaviour
 			turnIndicatorText.text = isPlayerTurn ? "Your Turn!" : "Opponent's Turn!";
 			turnIndicatorText.color = isPlayerTurn ? Color.green : Color.red;
 
+			// Add glow effect to the end turn button when it's the player's turn
+			if (isPlayerTurn)
+			{
+				AddGlowEffect(endTurnButton);
+				AddGlowEffect(drawCardButton);
+			}
+			else
+			{
+				RemoveGlowEffect(endTurnButton);
+				RemoveGlowEffect(drawCardButton);
+			}
+			StopAllCoroutines();
 			// Start coroutine to hide after 2 seconds
 			StartCoroutine(HideTurnIndicatorAfterDelay());
 		}
 	}
 
+
 	private IEnumerator HideTurnIndicatorAfterDelay()
 	{
-		yield return new WaitForSeconds(1f);
+		yield return new WaitForSeconds(2f);
 		turnIndicatorText.gameObject.SetActive(false);
 	}
 

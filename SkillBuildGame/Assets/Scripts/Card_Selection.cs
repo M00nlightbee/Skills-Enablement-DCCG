@@ -3,7 +3,7 @@ using UnityEngine.EventSystems;
 
 public class Card_Selection : MonoBehaviour , IPointerDownHandler, IPointerEnterHandler, IPointerExitHandler
 {
-    	private RectTransform rectTransform;
+    private RectTransform rectTransform;
 	private Canvas canvas;
 	private RectTransform canvasRectTranform;
 	private Vector3 originalScale;
@@ -41,14 +41,14 @@ public class Card_Selection : MonoBehaviour , IPointerDownHandler, IPointerEnter
 				HandleHoverState();
 				break;
 			case 2:
-				if (!Input.GetMouseButton(0)) //Check if mouse button is released
+				if (!Input.GetMouseButton(0))
 				{
 					TransitionToState0();
 				}
 				break;
 			case 3:
 				HandlePlayState();
-				if (!Input.GetMouseButton(0)) //Check if mouse button is released
+				if (!Input.GetMouseButton(0))
 				{
 					TransitionToState0();
 				}
@@ -59,10 +59,10 @@ public class Card_Selection : MonoBehaviour , IPointerDownHandler, IPointerEnter
 	public void TransitionToState0()
 	{
 		currentState = 0;
-		rectTransform.localScale = originalScale; //Reset Scale
-		rectTransform.localRotation = originalRotation; //Reset Rotation
-		rectTransform.localPosition = originalPosition; //Reset Position
-		glowEffect.SetActive(false); //Disable glow effect
+		rectTransform.localScale = originalScale; 
+		rectTransform.localRotation = originalRotation; 
+		rectTransform.localPosition = originalPosition; 
+		glowEffect.SetActive(false); 
 	}
 
 	public void OnPointerEnter(PointerEventData eventData)

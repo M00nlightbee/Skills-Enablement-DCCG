@@ -4,82 +4,69 @@ public class AudioManager : MonoBehaviour
 {
 	public AudioClip backgroundMusic;
 	public AudioClip collisionSound;
+	public AudioClip damageSoundEffect;
+	public AudioClip healSoundEffect;
 
-	private AudioSource audioSource;
-	private CameraShake cameraShake;
+	private AudioSource musicSource;
+	private AudioSource sfxSource;
 
-	void Start()
+	private void Awake()
 	{
-		// Ensure we have an AudioSource component
-		audioSource = GetComponent<AudioSource>();
-		if (audioSource == null)
-		{
-			audioSource = gameObject.AddComponent<AudioSource>();
-		}
+		// Ensure we have AudioSource components
+		musicSource = gameObject.AddComponent<AudioSource>();
+		sfxSource = gameObject.AddComponent<AudioSource>();
 
 		// Setup AudioSource properties
-		audioSource.loop = true; // Loop the background music
-		audioSource.playOnAwake = false;
-		audioSource.volume = 0.5f;
+		if (UnityEngine.SceneManagement.SceneManager.GetActiveScene().name == "DefeatScene" || UnityEngine.SceneManagement.SceneManager.GetActiveScene().name == "VictoryScene")
+		{
+			musicSource.loop = false;
+		}
+		else
+		{
+			musicSource.loop = true;
+		}
+		musicSource.playOnAwake = false;
+		musicSource.volume = 0.5f;
 
+		sfxSource.playOnAwake = false;
+		sfxSource.volume = 0.5f;
+	}
+
+	private void Start()
+	{
 		// Play background music if assigned
 		if (backgroundMusic != null)
 		{
-			audioSource.clip = backgroundMusic;
-			audioSource.Play();
+			musicSource.clip = backgroundMusic;
+			musicSource.Play();
 		}
-
-		// Find CameraShake script
-		cameraShake = Camera.main?.GetComponent<CameraShake>();
 	}
 
-	void OnCollisionEnter2D(Collision2D collision)
+	public void PlayClip(AudioClip clip)
 	{
-		PlaySoundEffect();
-	}
-
-	void OnTriggerEnter2D(Collider2D other)
-	{
-		PlaySoundEffect();
-	}
-
-	void PlaySoundEffect()
-	{
-		if (collisionSound != null)
+		if (clip != null)
 		{
-			audioSource.PlayOneShot(collisionSound);
+			sfxSource.PlayOneShot(clip);
 		}
-
-		if (cameraShake != null)
-		{
-			StartCoroutine(cameraShake.Shake(0.2f, 0.1f));
-		}
-	}
-
-	// --- Additional Background Music Controls ---
-	public void PauseMusic()
-	{
-		if (audioSource.isPlaying)
-		{
-			audioSource.Pause();
-		}
-	}
-
-	public void ResumeMusic()
-	{
-		if (!audioSource.isPlaying)
-		{
-			audioSource.Play();
-		}
-	}
-
-	public void StopMusic()
-	{
-		audioSource.Stop();
 	}
 
 	public void SetMusicVolume(float volume)
 	{
-		audioSource.volume = Mathf.Clamp(volume, 0f, 1f);
+		musicSource.volume = Mathf.Clamp(volume, 0f, 1f);
+	}
+
+	public void SetSFXVolume(float volume)
+	{
+		sfxSource.volume = Mathf.Clamp(volume, 0f, 1f);
+	}
+
+	public float GetMusicVolume()
+	{
+		return musicSource.volume;
+	}
+
+	public float GetSFXVolume()
+	{
+		return sfxSource.volume;
 	}
 }

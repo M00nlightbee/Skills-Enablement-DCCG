@@ -4,7 +4,7 @@ using SkillBuildGame;
 
 public class DropArea : MonoBehaviour, IDropHandler
 {
-	public bool isPlayerDropArea; // tick in input if this is the player drop area
+	public bool isPlayerDropArea;
 
 	public void OnDrop(PointerEventData eventData)
 	{

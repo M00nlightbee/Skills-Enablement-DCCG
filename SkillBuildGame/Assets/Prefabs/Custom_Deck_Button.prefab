@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 587621993395116142}
   - component: {fileID: 6187009337046546299}
   - component: {fileID: 649988321809778441}
+  - component: {fileID: 8740274677769867798}
   m_Layer: 5
   m_Name: Custom_Deck_Button
   m_TagString: Untagged
@@ -27,10 +28,10 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4501619086742823998}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 5, y: 1.1764705, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 9, y: 2.117647, z: 1.8}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 45349364262843795}
   m_Father: {fileID: 0}
@@ -138,6 +139,21 @@ MonoBehaviour:
   Custom_Button: {fileID: 6187009337046546299}
   button_text: {fileID: 7588236101329712528}
   Card_Selected: 000000000000000000000000000000000000
+--- !u!114 &8740274677769867798
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4501619086742823998}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1311642bf3e4a214ea7414de72c60ffd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hoverSound: {fileID: 8300000, guid: 73d470f328692b649921fa4ee3253c46, type: 3}
+  clickSound: {fileID: 8300000, guid: e1569531f920e0e4586bfb6a684c4969, type: 3}
+  hoverColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
 --- !u!1 &7319031712858737590
 GameObject:
   m_ObjectHideFlags: 0
