@@ -1,26 +1,39 @@
 using UnityEngine;
 using UnityEngine.UI;
 using System.IO;
-using System;
-
+using System.Collections;
+using UnityEngine.Networking;
 
 public class Character_Icon_HUD : MonoBehaviour
 {
-    public RawImage Character_Icon;
-    public Texture[] Character_Array = new Texture[20];
-    private int position;
-    void Start()
-    {
-        Read_CSV();
-    }
+	public RawImage Character_Icon;
+	public Texture[] Character_Array = new Texture[20];
+	private int position;
 
-    void Read_CSV()
+	void Start()
 	{
-		using (StreamReader reader = new StreamReader("Assets/Character_Choice.csv"))
+		Read_Position();
+	}
+
+	void Read_Position()
+	{
+		if (PlayerPrefs.HasKey("CharacterPosition"))
 		{
-            position = Convert.ToInt32(reader.ReadLine());
-            //Debug.Log(position);
-			Character_Icon.texture = Character_Array[position];
+			position = PlayerPrefs.GetInt("CharacterPosition");
+
+			if (position >= 0 && position < Character_Array.Length)
+			{
+				Character_Icon.texture = Character_Array[position];
+			}
+			else
+			{
+				Debug.LogError("Character position out of range: " + position);
+			}
+		}
+		else
+		{
+			Debug.LogError("Character position not found in PlayerPrefs.");
 		}
 	}
 }
+

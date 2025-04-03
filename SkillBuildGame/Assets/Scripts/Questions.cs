@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.IO;
 using SkillBuildGame;
 using System.Collections;
+using UnityEngine.Networking;
 
 public class Questions : MonoBehaviour
 {
@@ -29,9 +30,7 @@ public class Questions : MonoBehaviour
 
 	void Start()
 	{
-		Read_CSV(selectedRowStart, selectedRowEnd, skipRowIndices);
-		ShuffleQuestions();
-		AskQuestion();
+		StartCoroutine(Read_CSV(selectedRowStart, selectedRowEnd, skipRowIndices));
 	}
 
 	void Awake()
@@ -39,22 +38,26 @@ public class Questions : MonoBehaviour
 		cardDisplay = FindAnyObjectByType<CardDisplay>();
 	}
 
-	void Read_CSV(int startRow, int endRow, List<int> skipRowIndices)
+	IEnumerator Read_CSV(int startRow, int endRow, List<int> skipRowIndices)
 	{
-		using (StreamReader reader = new StreamReader("Assets/IBM_AI_Questions.csv"))
+		string filePath = Path.Combine(Application.streamingAssetsPath, "IBM_AI_Questions.csv");
+
+		using (UnityWebRequest request = UnityWebRequest.Get(filePath))
 		{
-			string string_data;
+			yield return request.SendWebRequest();
+
+			if (request.result != UnityWebRequest.Result.Success)
+			{
+				Debug.LogError("CSV file not found or failed to load: " + filePath);
+				yield break;
+			}
+
+			string[] lines = request.downloadHandler.text.Split('\n');
 			int rowIndex = 0;
 
-			while ((string_data = reader.ReadLine()) != null)
+			foreach (string line in lines)
 			{
-				if (string.IsNullOrWhiteSpace(string_data))
-				{
-					rowIndex++;
-					continue;
-				}
-
-				if (skipRowIndices.Contains(rowIndex))
+				if (string.IsNullOrWhiteSpace(line) || skipRowIndices.Contains(rowIndex))
 				{
 					rowIndex++;
 					continue;
@@ -62,19 +65,22 @@ public class Questions : MonoBehaviour
 
 				if (rowIndex >= startRow && rowIndex <= endRow)
 				{
-					var data_values = string_data.Split(',');
+					var data_values = line.Split(',');
 					if (data_values.Length >= 7)
 					{
 						questions_text.Add(data_values);
 					}
 					else
 					{
-						Debug.LogWarning("Row does not have the expected number of columns: " + string_data);
+						Debug.LogWarning("Row does not have the expected number of columns: " + line);
 					}
 				}
 				rowIndex++;
 			}
 		}
+
+		ShuffleQuestions();
+		AskQuestion();
 	}
 
 	void ShuffleQuestions()
@@ -88,9 +94,6 @@ public class Questions : MonoBehaviour
 
 	void AskQuestion()
 	{
-
-		ShuffleQuestions();
-
 		if (questionsAsked >= totalQuestionsToAsk || questionsAsked >= questions_text.Count)
 		{
 			Debug.Log("All questions asked. Resuming game.");
@@ -115,8 +118,6 @@ public class Questions : MonoBehaviour
 		}
 	}
 
-
-
 	bool IsValidQuestion(int position)
 	{
 		if (position >= questions_text.Count || questions_text[position].Length < 7 || string.IsNullOrWhiteSpace(questions_text[position][1]))
@@ -124,7 +125,6 @@ public class Questions : MonoBehaviour
 			return false;
 		}
 
-		// Check if all answer options are non-empty
 		for (int i = 2; i <= 5; i++)
 		{
 			if (string.IsNullOrWhiteSpace(questions_text[position][i]))

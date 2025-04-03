@@ -5,8 +5,8 @@ using SkillBuildGame;
 using UnityEngine.UI;
 using TMPro;
 using System.IO;
-using UnityEditor.SearchService;
 using UnityEngine.SceneManagement;
+using System.Linq;
 
 
 public class Deck_Data_Collector : MonoBehaviour
@@ -196,26 +196,33 @@ public class Deck_Data_Collector : MonoBehaviour
 
 	void Write_To_File()
 	{
-
-		using (StreamWriter sw = new StreamWriter("Assets/Custom_Set.csv", false))
+		try
 		{
-			for (int i = 0; i < 18; i++)
-			{
-				if (Card_Selected[i] == true)
-				{
-					if (i != 17)
-					{
-						sw.Write(i + ",");
-					}
-					else
-					{
-						sw.Write(i);
-					}
-				}
+			string selectedCards = string.Join(",", Card_Selected.Select((selected, index) => selected ? index.ToString() : null).Where(index => index != null));
+			PlayerPrefs.SetString("Custom_Set", selectedCards);
+			PlayerPrefs.Save();
+		}
+		catch (System.Exception e)
+		{
+			Debug.LogError("Failed to save custom set: " + e.Message);
+		}
+	}
+	void Load_Custom_Set()
+	{
+		if (PlayerPrefs.HasKey("Custom_Set"))
+		{
+			string savedData = PlayerPrefs.GetString("Custom_Set");
+			string[] savedIndices = savedData.Split(',');
 
+			for (int i = 0; i < Card_Selected.Length; i++)
+			{
+				Card_Selected[i] = savedIndices.Contains(i.ToString());
 			}
 		}
-
+		else
+		{
+			Debug.LogError("Custom set not found in PlayerPrefs.");
+		}
 	}
 
 }

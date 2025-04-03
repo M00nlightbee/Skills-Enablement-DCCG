@@ -1,5 +1,5 @@
 using UnityEngine;
-using UnityEditor.UI;
+using UnityEngine.UI;
 
 public class Bounce : MonoBehaviour
 {

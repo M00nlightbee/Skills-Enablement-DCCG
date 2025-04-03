@@ -36,16 +36,18 @@ public class Change_Icon : MonoBehaviour
             }
     }
 
-    void Write_To_File()
-    {
-
-        using (StreamWriter sw = new StreamWriter("Assets/Character_Choice.csv", false))
-            {
-                sw.Write(position);
-                sw.Close();
-            }
-
-    }
+	void Write_To_File()
+	{
+		try
+		{
+			PlayerPrefs.SetInt("CharacterPosition", position);
+			PlayerPrefs.Save();
+		}
+		catch (System.Exception e)
+		{
+			Debug.LogError("Failed to save character position: " + e.Message);
+		}
+	}
 
 
 }
