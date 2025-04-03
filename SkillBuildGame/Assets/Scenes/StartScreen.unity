@@ -493,7 +493,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dbde986311c17b64d95ee32c01863b2d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  backgroundMusic: {fileID: 8300000, guid: bce789ca5675d104fa8f3b1e4eabe95c, type: 3}
+  backgroundMusic: {fileID: 8300000, guid: 4c0ea90c75d88a043ad9d25ea452622d, type: 3}
   collisionSound: {fileID: 0}
   damageSoundEffect: {fileID: 0}
   healSoundEffect: {fileID: 0}

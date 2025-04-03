@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardName: Wormhole Escape
   cardRarity: 00000000
-  manaCost: 0
-  cardDescription: Gain 2 mana
+  manaCost: 1
+  cardDescription: Gain 3 health
   cardImage: {fileID: 7028616704906629411, guid: 6c421a68ff235f040a267397593a1f2d, type: 3}
-  effect: 2
-  cardType: 02000000
+  effect: 3
+  cardType: 01000000

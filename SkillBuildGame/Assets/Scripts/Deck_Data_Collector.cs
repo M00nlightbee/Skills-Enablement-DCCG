@@ -34,8 +34,6 @@ public class Deck_Data_Collector : MonoBehaviour
 	public Card_Selection[] card_Selection = new Card_Selection[8];
 
 
-
-	// Start is called once before the first execution of Update after the MonoBehaviour is created
 	void Start()
 	{
 		//Load all card assets from the Resources folder
@@ -57,8 +55,6 @@ public class Deck_Data_Collector : MonoBehaviour
 			{
 				Debug.LogError("CardDisplay component not found on card object.");
 			}
-
-
 		}
 
 		//Sets click events for direction button
@@ -79,12 +75,9 @@ public class Deck_Data_Collector : MonoBehaviour
 
 		Custom_Deck_Button.gameObject.SetActive(false);
 	}
-
-	// Update is called once per frame
 	void Update()
 	{
 		//will show if selected or not
-
 		for (int i = 0; i < 8; i++)
 		{
 			if ((i + (8 * page_number)) < allCards.Count)
@@ -97,13 +90,9 @@ public class Deck_Data_Collector : MonoBehaviour
 				{
 					card_Selection[i].GetComponent<Card_Selection>().glowEffect.SetActive(false);
 				}
-
 			}
-
 		}
-
 		page_text.text = "Page " + (page_number + 1);
-
 	}
 
 	void Left_Button_Click()
@@ -112,7 +101,6 @@ public class Deck_Data_Collector : MonoBehaviour
 		{
 			page_number--;
 		}
-
 		// Set the card data on the CardDisplay component
 		for (int i = 0; i < 8; i++)
 		{
@@ -130,10 +118,7 @@ public class Deck_Data_Collector : MonoBehaviour
 			{
 				Debug.LogError("CardDisplay component not found on card object.");
 			}
-
-
 		}
-
 	}
 
 	void Right_Button_Click()
@@ -142,9 +127,6 @@ public class Deck_Data_Collector : MonoBehaviour
 		{
 			page_number++;
 		}
-
-
-
 		// Set the card data on the CardDisplay component
 		for (int i = 0; i < 8; i++)
 		{
@@ -180,7 +162,6 @@ public class Deck_Data_Collector : MonoBehaviour
 		{
 			Card_Selected[i + (8 * page_number)] = true;
 		}
-
 	}
 
 	void New_Deck_Click()
@@ -195,13 +176,10 @@ public class Deck_Data_Collector : MonoBehaviour
 			save_Card.Card_Selected[i] = Card_Selected[i];
 			Card_Selected[i] = false;
 		}
-
-
 	}
 
 	void Default_Deck_Click()
 	{
-
 		collection_text.text = "Default Collection";
 		for (int i = 0; i < allCards.Count; i++)
 		{

@@ -8,6 +8,5 @@ public class IBMSkillsBuild : MonoBehaviour
     {
         Application.OpenURL("https://skillsbuild.org");
     }
-
-    
+  
 }

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Alien Berserker
   m_EditorClassIdentifier: 
   cardName: Alien Berserker
-  cardRarity: 02000000
+  cardRarity: 03000000
   manaCost: 5
   cardDescription: Deals 7 damage
   cardImage: {fileID: -855298285791758126, guid: 5782f2d0259d5b342904fb85e02f576f, type: 3}

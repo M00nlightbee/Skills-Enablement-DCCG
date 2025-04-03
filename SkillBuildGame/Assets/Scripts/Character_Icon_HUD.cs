@@ -6,20 +6,12 @@ using System;
 
 public class Character_Icon_HUD : MonoBehaviour
 {
-
     public RawImage Character_Icon;
     public Texture[] Character_Array = new Texture[20];
     private int position;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         Read_CSV();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 
     void Read_CSV()

@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: Starlight Medic
   m_EditorClassIdentifier: 
   cardName: Starlight Medic
-  cardRarity: 00000000
+  cardRarity: 01000000
   manaCost: 3
-  cardDescription: Gain 4 health
+  cardDescription: Gain 5 health
   cardImage: {fileID: 2960402581040015946, guid: 936bd8d19fca642499b29ac9021324a7, type: 3}
-  effect: 4
+  effect: 5
   cardType: 01000000

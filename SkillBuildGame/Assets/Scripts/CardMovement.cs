@@ -82,11 +82,11 @@ public class CardMovement : MonoBehaviour, IDragHandler, IPointerDownHandler, IP
 	private void TransitionToState0()
 	{
 		currentState = 0;
-		rectTransform.localScale = originalScale; //Reset Scale
-		rectTransform.localRotation = originalRotation; //Reset Rotation
-		rectTransform.localPosition = originalPosition; //Reset Position
-		glowEffect.SetActive(false); //Disable glow effect
-		playArrow.SetActive(false); //Disable playArrow
+		rectTransform.localScale = originalScale;
+		rectTransform.localRotation = originalRotation; 
+		rectTransform.localPosition = originalPosition;
+		glowEffect.SetActive(false);
+		playArrow.SetActive(false);
 	}
 
 	public void OnPointerEnter(PointerEventData eventData)

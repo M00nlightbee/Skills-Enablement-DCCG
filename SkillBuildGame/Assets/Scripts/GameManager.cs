@@ -10,7 +10,7 @@ public class GameManager : MonoBehaviour
 {
 	public static GameManager Instance { get; private set; }
 
-	private int playerHealth = 20;
+	private int playerHealth = 30;
 	private int opponentHealth = 30;
 	private const int minHealth = 0;
 	private const int maxHealth = 30;
@@ -38,9 +38,8 @@ public class GameManager : MonoBehaviour
 	private Shoot shootComponent;
 
 	private AudioManager audioManager;
-	//public AudioClip collisionSound;
 	public AudioClip damageSoundEffect;
-	//public AudioClip healSoundEffect;
+	public AudioClip healSoundEffect;
 
 
 	private Image opponentShip;
@@ -110,13 +109,10 @@ public class GameManager : MonoBehaviour
 			Debug.LogError("CardDisplay component not found on card object.");
 		}
 
-		// Set the card's position and parent
 		cardObject.transform.SetParent(opponentHandManager.opponentHandPanel, false);
 		cardObject.transform.localPosition = Vector3.zero;
 
-		// Call EndTurn with the drawn card and cardObject
 		EndTurn(drawnCard, cardObject);
-		//UpdateTurnIndicator();
 	}
 
 	private IEnumerator OpponentPlayRandomCards()
@@ -207,13 +203,9 @@ public class GameManager : MonoBehaviour
 
 		UpdatePlayerMana();
 
-		// Re-enable player's hand UI
+		// Re-enable player's UI
 		handManager.SetHandInteractable(true);
-
-		// Re-enable the draw card button
 		drawCardButton.interactable = true;
-
-		// Enable end turn button
 		endTurnButton.interactable = true;
 
 		// Switch turn back to player
@@ -251,26 +243,20 @@ public class GameManager : MonoBehaviour
 			StartCoroutine(OpponentPlayRandomCards());
 			UpdateOpponentMana();
 		}
-
-		//UpdateTurnIndicator();
 	}
 
 	private void SpawnCardInDropArea(Card card, GameObject cardObject, string areaName)
 	{
-		// Find the drop area by name
 		Transform dropArea = GameObject.Find(areaName).transform;
 
-		// Instantiate the card in the drop area
 		GameObject newCard = Instantiate(cardObject, dropArea.position, Quaternion.identity, dropArea);
 		newCard.GetComponent<CardDisplay>().SetCard(card);
 	}
 
 	public void DealDamageToOpponent(Card card, GameObject cardObject)
 	{
-		// Check if the card type before dealing damage
 		if (card.cardType.Contains(Card.CardType.attack))
 		{
-			// check if player has enough mana before dealing damage
 			if (!CheckMana(card))
 			{
 				Debug.Log("Not enough mana to play the card.");
@@ -336,7 +322,6 @@ public class GameManager : MonoBehaviour
 		}
 	}
 
-
 	private void AddGlowEffect(Button button)
 	{
 		var outline = button.gameObject.GetComponent<Outline>();
@@ -371,12 +356,13 @@ public class GameManager : MonoBehaviour
 			}
 			else
 			{
+	
 				playerHealth += card.effect;
 				playerHealth = Mathf.Clamp(playerHealth, 0, maxHealth);
 				Debug.Log($"Healing player by {card.effect}. New health: {playerHealth}");
 				playerHealthUI.UpdateHealthUI(playerHealth);
 
-				// Make the player's ship image glow red
+				audioManager.PlayClip(healSoundEffect);
 				StartCoroutine(GlowShip(playerShip, Color.green, 0.5f));
 
 				// Update player's mana after healing
@@ -384,7 +370,6 @@ public class GameManager : MonoBehaviour
 				playerMana = Mathf.Clamp(playerMana, 0, maxMana);
 				playerManaUI.UpdateManaUI(playerMana);
 
-				// Check health status
 				CheckHealthStatus();
 
 				// Remove the card from hand and destroy it
@@ -394,7 +379,6 @@ public class GameManager : MonoBehaviour
 		}
 		else
 		{
-			Debug.Log("Card is not of type heal or player's health is not less than maxHealth. No healing applied.");
 			FindAnyObjectByType<MessageDisplay>().ShowMessage(" Max Health. No healing applied ", 3f);
 		}
 	}
@@ -405,7 +389,6 @@ public class GameManager : MonoBehaviour
 		{
 			if (!CheckMana(card))
 			{
-				Debug.Log("Not enough mana to play the card.");
 				FindAnyObjectByType<MessageDisplay>().ShowMessage(" Not enough mana to play the card ", 3f);
 				return;
 			}
@@ -435,9 +418,6 @@ public class GameManager : MonoBehaviour
 		SceneManager.LoadSceneAsync("Question_Display", LoadSceneMode.Additive);
 	}
 
-
-
-
 	private void CheckHealthStatus()
 	{
 		if (playerHealth <= minHealth)
@@ -450,24 +430,11 @@ public class GameManager : MonoBehaviour
 		}
 	}
 
-	//private void UpdateTurnIndicator()
-	//{
-	//	if (turnIndicatorText != null)
-	//	{
-	//		turnIndicatorText.gameObject.SetActive(true); // Show the indicator
-	//		turnIndicatorText.text = isPlayerTurn ? "Your Turn!" : "Opponent's Turn!";
-	//		turnIndicatorText.color = isPlayerTurn ? Color.green : Color.red;
-
-	//		// Start coroutine to hide after 2 seconds
-	//		StartCoroutine(HideTurnIndicatorAfterDelay());
-	//	}
-	//}
-
 	private void UpdateTurnIndicator()
 	{
 		if (turnIndicatorText != null)
 		{
-			turnIndicatorText.gameObject.SetActive(true); // Show the indicator
+			turnIndicatorText.gameObject.SetActive(true); 
 			turnIndicatorText.text = isPlayerTurn ? "Your Turn!" : "Opponent's Turn!";
 			turnIndicatorText.color = isPlayerTurn ? Color.green : Color.red;
 
@@ -483,7 +450,6 @@ public class GameManager : MonoBehaviour
 				RemoveGlowEffect(drawCardButton);
 			}
 			StopAllCoroutines();
-			// Start coroutine to hide after 2 seconds
 			StartCoroutine(HideTurnIndicatorAfterDelay());
 		}
 	}
@@ -506,12 +472,10 @@ public class GameManager : MonoBehaviour
 	// update player's mana with number of correct answers
 	public void UpdatePlayerManaWithCorrectAnswers()
 	{
-		// Add to player's mana with the number of correct answers
 		playerMana += Questions.correctAnswers;
 		playerMana = Mathf.Clamp(playerMana, 0, maxMana);
 		playerManaUI.UpdateManaUI(playerMana);
 
-		// Reset correctAnswers after updating mana
 		Questions.correctAnswers = 0;
 	}
 
@@ -535,7 +499,6 @@ public class GameManager : MonoBehaviour
 			return false;
 		}
 	}
-
 	public int GetPlayerHealth()
 	{
 		return playerHealth;

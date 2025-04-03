@@ -10,16 +10,9 @@ public class Save_Card_Selection : MonoBehaviour
 	public Button Custom_Button;
 	public TextMeshProUGUI button_text;
 	public bool[] Card_Selected = new bool[18];
-	// Start is called once before the first execution of Update after the MonoBehaviour is created
 	void Start()
 	{
 		Custom_Button.onClick.AddListener(Custom_Deck_Save);
-	}
-
-	// Update is called once per frame
-	void Update()
-	{
-
 	}
 
 	void Custom_Deck_Save()
@@ -34,9 +27,6 @@ public class Save_Card_Selection : MonoBehaviour
 			deck_Data.Card_Selected[i] = Card_Selected[i];
 		}
 
-
-
 	}
-
 
 }

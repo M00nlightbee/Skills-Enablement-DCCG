@@ -3,11 +3,9 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     public void StartMenu()
     {
         SceneManager.LoadSceneAsync("MainMenu");
     }
-
     
 }

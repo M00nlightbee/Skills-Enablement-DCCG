@@ -15,7 +15,7 @@ MonoBehaviour:
   cardName: Black Hole Trap
   cardRarity: 03000000
   manaCost: 1
-  cardDescription: Gain 6 mana
+  cardDescription: Gain 4 mana
   cardImage: {fileID: 6937817954938267909, guid: 3fa1832f14b8f424faf3b797e3f6f34a, type: 3}
-  effect: 5
+  effect: 4
   cardType: 02000000

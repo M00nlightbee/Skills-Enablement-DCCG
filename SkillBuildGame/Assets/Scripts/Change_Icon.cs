@@ -8,10 +8,9 @@ public class Change_Icon : MonoBehaviour
     public RawImage Character_Icon;
     public Texture[] Character_Array = new Texture[20];
     private int position;
-     public Button Next_button;
+    public Button Next_button;
     public Button Back_button;
     public Button Select_button;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         Back_button.onClick.AddListener(BackOption);
@@ -19,11 +18,6 @@ public class Change_Icon : MonoBehaviour
         Select_button.onClick.AddListener(Write_To_File);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
      public void NextOption()
     {
        if (position <20)

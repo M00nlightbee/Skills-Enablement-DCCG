@@ -685,7 +685,6 @@ GameObject:
   - component: {fileID: 519420032}
   - component: {fileID: 519420031}
   - component: {fileID: 519420030}
-  - component: {fileID: 519420033}
   - component: {fileID: 519420034}
   m_Layer: 0
   m_Name: Main Camera
@@ -804,18 +803,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &519420033
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 519420028}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dd51df71670fbfd46aa528183cf23703, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!81 &519420034
 AudioListener:
   m_ObjectHideFlags: 0
@@ -1222,7 +1209,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!199 &776907294
 ParticleSystemRenderer:
   serializedVersion: 6
@@ -7005,6 +6992,7 @@ GameObject:
   - component: {fileID: 1613365200}
   - component: {fileID: 1613365199}
   - component: {fileID: 1613365198}
+  - component: {fileID: 1613365201}
   m_Layer: 0
   m_Name: DrawCard
   m_TagString: Untagged
@@ -7126,6 +7114,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1613365196}
   m_CullTransparentMesh: 1
+--- !u!114 &1613365201
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1613365196}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1311642bf3e4a214ea7414de72c60ffd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hoverSound: {fileID: 8300000, guid: 73d470f328692b649921fa4ee3253c46, type: 3}
+  clickSound: {fileID: 8300000, guid: e1569531f920e0e4586bfb6a684c4969, type: 3}
+  hoverColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
 --- !u!1 &1694109329
 GameObject:
   m_ObjectHideFlags: 0
@@ -7704,6 +7707,7 @@ GameObject:
   - component: {fileID: 2119240908}
   - component: {fileID: 2119240907}
   - component: {fileID: 2119240906}
+  - component: {fileID: 2119240909}
   m_Layer: 0
   m_Name: EndTurnButton
   m_TagString: Untagged
@@ -7813,6 +7817,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2119240904}
   m_CullTransparentMesh: 1
+--- !u!114 &2119240909
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2119240904}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1311642bf3e4a214ea7414de72c60ffd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hoverSound: {fileID: 8300000, guid: 73d470f328692b649921fa4ee3253c46, type: 3}
+  clickSound: {fileID: 8300000, guid: e1569531f920e0e4586bfb6a684c4969, type: 3}
+  hoverColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
 --- !u!1 &2123861100
 GameObject:
   m_ObjectHideFlags: 0
@@ -7927,6 +7946,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 8300000, guid: bce789ca5675d104fa8f3b1e4eabe95c, type: 3}
     - target: {fileID: 7647324218837499043, guid: 0d94d801410ce8647b4fa38a4fa9d486, type: 3}
+      propertyPath: healSoundEffect
+      value: 
+      objectReference: {fileID: 8300000, guid: 10df6f90dd63515448decacd243e8190, type: 3}
+    - target: {fileID: 7647324218837499043, guid: 0d94d801410ce8647b4fa38a4fa9d486, type: 3}
       propertyPath: damageSoundEffect
       value: 
       objectReference: {fileID: 8300000, guid: 3ad2d4de375e1234b907654428e8794e, type: 3}
@@ -7937,13 +7960,15 @@ PrefabInstance:
     - target: {fileID: 8757911276126637197, guid: 0d94d801410ce8647b4fa38a4fa9d486, type: 3}
       propertyPath: backgroundMusic
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 8300000, guid: a82bc62fbff318548b4c333d3c799abd, type: 3}
     - target: {fileID: 8757911276126637197, guid: 0d94d801410ce8647b4fa38a4fa9d486, type: 3}
       propertyPath: damageSoundEffect
       value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 7492696896845108538, guid: 0d94d801410ce8647b4fa38a4fa9d486, type: 3}
+    - {fileID: -4474471088879581549, guid: 0d94d801410ce8647b4fa38a4fa9d486, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0d94d801410ce8647b4fa38a4fa9d486, type: 3}

@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardName: Starship Defender
   cardRarity: 00000000
-  manaCost: 0
+  manaCost: 1
   cardDescription: Gain 4 mana
   cardImage: {fileID: -5099292496197868168, guid: 8e7d57e2d8487a24aa924674d680a4a5, type: 3}
   effect: 4

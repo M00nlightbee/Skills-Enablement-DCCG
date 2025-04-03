@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Cosmic Crusader
   m_EditorClassIdentifier: 
   cardName: Cosmic Crusader
-  cardRarity: 00000000
+  cardRarity: 01000000
   manaCost: 3
   cardDescription: Deals 4 damage
   cardImage: {fileID: 8288426215254106694, guid: cc6a04908b517024196071969fe6a702, type: 3}
