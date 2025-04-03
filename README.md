@@ -27,6 +27,9 @@
 - [License](#license)
 
 ---
+<div align="center">
+  <img src="CardDesign.png" alt="Card Design" width="400"/>
+</div>
 
 ## 🎯 About the Project
 
