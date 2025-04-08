@@ -16,15 +16,15 @@
 
 ## 📌 Table of Contents
 
-- [About the Project](#about-the-project)
-- [Key Features](#key-features)
-- [Development Process](#development-process)
-- [Wireframes & Design](#wireframes--design)
-- [Technologies Used](#technologies-used)
-- [Game Flow](#game-flow)
-- [Card Anatomy & Rarity](#card-anatomy--rarity)
-- [Setup & Contribution](#setup--contribution)
-- [License](#license)
+- [About the Project](https://github.com/M00nlightbee/Skills-Enablement-DCCG?tab=readme-ov-file#-about-the-project)
+- [Key Features](https://github.com/M00nlightbee/Skills-Enablement-DCCG?tab=readme-ov-file#-key-features)
+- [Development Process](https://github.com/M00nlightbee/Skills-Enablement-DCCG?tab=readme-ov-file#-development-process)
+- [Wireframes & Design](https://github.com/M00nlightbee/Skills-Enablement-DCCG?tab=readme-ov-file#-wireframes--design)
+- [Technologies Used](https://github.com/M00nlightbee/Skills-Enablement-DCCG?tab=readme-ov-file#-technologies-used)
+- [Game Flow](https://github.com/M00nlightbee/Skills-Enablement-DCCG?tab=readme-ov-file#-game-flow)
+- [Card Anatomy & Rarity](https://github.com/M00nlightbee/Skills-Enablement-DCCG?tab=readme-ov-file#-card-anatomy--rarity)
+- [Setup & Contribution](https://github.com/M00nlightbee/Skills-Enablement-DCCG?tab=readme-ov-file#%EF%B8%8F-setup--contribution)
+- [License](https://github.com/M00nlightbee/Skills-Enablement-DCCG?tab=License-1-ov-file)
 
 ---
 <div align="center">
@@ -115,11 +115,14 @@ Here’s what each part of a card means:
 
 ### 🔍 Card Breakdown
 
-- **Opponent's Mana (Top Left)**  
-  Shows how much energy the opponent has left. Starts at 10. When it hits 0, they lose!
+- **Mana Cost (Top Left)**  
+  Shows the amount of mana required to play card
 
-- **Player's Mana (Bottom Left)**  
-  Your energy level! You need mana to play cards. Starts at 10, game ends if it drops to 0.
+- **Effect Value (Bottom Left)**  
+  Effect can be attack/heal/mana value:
+    - for attack the number of damage to be dealt
+    - for heal number of health you can gain and
+    - for mana number of mana you can gain for each question you get right(each correct answer gives 1 mana)
 
 - **Card Name (Top Center)**  
   Every card has a cool name — like “Cyber Firewall” or “AI Strike”.
@@ -127,10 +130,10 @@ Here’s what each part of a card means:
 - **Card Image (Middle)**  
   The visual of the card — sometimes a hero, a shield, or a starship.
 
-- **Card Effect (Bottom Center)**  
-  Shows what the card does, like “Deal 3 Damage” or “Heal 2 Health”.
+- **Card Effect Description (Bottom Center)**  
+  Shows what the card does, e.g "Deal 3 Damage" ,"“Heal 2 Health" or "Gain 2 Mana".
 
-- **Card Action Type (Bottom Right Color Dot)**  
+- **Card Action Type (Sheild Icon on the image)**  
   What this card does:
   - 🔴 **Red** = Attack
   - 🟢 **Green** = Heal
@@ -152,5 +155,5 @@ Here’s what each part of a card means:
 # Clone the repo
 git clone https://github.com/M00nlightbee/Skills-Enablement-DCCG.git
 
-# Open in Unity (version X.X.XfX)
+# Open in Unity (version: Unity 6 (2024) 6000.0.37f1 LTS)
 # Run the main scene to play
