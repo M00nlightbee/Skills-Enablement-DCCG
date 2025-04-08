@@ -12,33 +12,6 @@
   </p>
 </div>
 
-<p style="align:right; position: sticky;">
-  <a href="#top" class="back-to-top-link" aria-label="Scroll to Top" >🔼 Table of Contents</a>
-</p>
-
-<a href="#top" class="back-to-top" aria-label="Back to Top">🔼 Table of Contents</a>
-
-<style>
-.back-to-top {
-  position: fixed;
-  bottom: 2rem;
-  right: 2rem;
-  text-decoration: none;
-  font-size: 2rem;
-  display: inline-block;
-  opacity: 0.7;
-  transition: opacity 0.3s;
-}
-
-.back-to-top:hover {
-  opacity: 1;
-}
-
-html {
-  scroll-behavior: smooth;
-}
-</style>
-
 
 ---
 
@@ -70,6 +43,10 @@ Players:
 
 👉 [Project Overview](https://docs.google.com/document/d/14BMKRUqbnrAMTLlWKWsAzZeuF36g5QbhpxTpNvQdBx4/edit?usp=sharing)
 
+<p align="right">
+  <a href="#top">🔼 Table of Contents</a>
+</p>
+
 ---
 
 ## 🔑 Key Features
@@ -81,6 +58,10 @@ Players:
 - 🔁 Drag-and-drop mechanics
 - 📊 Health & mana UI with real-time updates
 
+<p align="right">
+  <a href="#top">🔼 Table of Contents</a>
+</p>
+
 ---
 
 ## 🔄 Development Process
@@ -90,6 +71,10 @@ We used Agile game dev practices:
 - 🧪 Playtesting and feedback loops
 - 🔄 Iterative Unity builds and sprints
 - 📋 Clean, modular code with `GameManager`, `Card`, `DeckManager`, etc.
+
+<p align="right">
+  <a href="#top">🔼 Table of Contents</a>
+</p>
 
 ---
 
@@ -103,6 +88,10 @@ We planned every screen first with wireframes:
 
 ▶️ [View Figma Wireframes](https://www.figma.com/proto/6WOWbbwzxDDswA4TzgWmtG/Game-Prototype?page-id=0%3A1&node-id=41-977&p=f&viewport=214%2C-45%2C0.13&scaling=contain&content-scaling=fixed&starting-point-node-id=41%3A977)
 
+<p align="right">
+  <a href="#top">🔼 Table of Contents</a>
+</p>
+
 ---
 
 ## 🧰 Technologies Used
@@ -113,6 +102,10 @@ We planned every screen first with wireframes:
 - 🧪 **Unity Test Framework** – unit tests
 - 🖼️ **Figma** – UI/UX design
 - 🌐 **GitHub** – version control and project tracking
+
+<p align="right">
+  <a href="#top">🔼 Table of Contents</a>
+</p>
 
 ---
 
@@ -130,6 +123,10 @@ We planned every screen first with wireframes:
 - Health system for player/opponent
 - Mana required to play stronger cards
 - Cards are rewarded based on quiz performance
+
+<p align="right">
+  <a href="#top">🔼 Table of Contents</a>
+</p>
 
 ---
 
@@ -175,6 +172,10 @@ Here’s what each part of a card means:
   - 🟣 **Purple** – Epic  
   - 🟡 **Gold** – Legendary
 
+<p align="right">
+  <a href="#top">🔼 Table of Contents</a>
+</p>
+
 ---
 
 ## 🛠️ Setup & Contribution
@@ -187,5 +188,7 @@ git clone https://github.com/M00nlightbee/Skills-Enablement-DCCG.git
 # Run the main scene to play
 ```
 
-
+<p align="right">
+  <a href="#top">🔼 Table of Contents</a>
+</p>
 
