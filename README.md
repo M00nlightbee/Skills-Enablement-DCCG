@@ -148,6 +148,7 @@ Here’s what each part of a card means:
   - 🟣 **Purple** – Epic  
   - 🟡 **Gold** – Legendary
 
+[🔼 Table of Contents](https://github.com/M00nlightbee/Skills-Enablement-DCCG/blob/main/README.md#-table-of-contents)
 ---
 
 ## 🛠️ Setup & Contribution
@@ -162,5 +163,7 @@ git clone https://github.com/M00nlightbee/Skills-Enablement-DCCG.git
 
 ---
 
-[🔼 Back to top](#table-of-contents)
+[🔼 Table of Contents](https://github.com/M00nlightbee/Skills-Enablement-DCCG/blob/main/README.md#-table-of-contents)
+
+<a href="#top" class="back-to-top-link" aria-label="Scroll to Top" align="right">🔼 Table of Contents</a>
 
