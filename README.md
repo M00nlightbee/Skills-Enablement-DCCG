@@ -135,7 +135,7 @@ We planned every screen first with wireframes:
 Here’s what each part of a card means:
 
 <div align="center">
-  <img src="CardDesign.png" alt="Card Design" width="400"/>
+  <img src="CardAnatomy.PNG" alt="Card Design" width="400"/>
 </div>
 
 ### 🔍 Card Breakdown
