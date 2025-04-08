@@ -12,6 +12,10 @@
   </p>
 </div>
 
+<div class="back-to-top-wrapper">
+  <a href="#top" class="back-to-top-link" aria-label="Scroll to Top">🔝</a>
+</div>
+
 ---
 
 ## 📌 Table of Contents
