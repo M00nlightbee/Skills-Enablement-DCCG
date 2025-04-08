@@ -16,6 +16,30 @@
   <a href="#top" class="back-to-top-link" aria-label="Scroll to Top" >🔼 Table of Contents</a>
 </p>
 
+<a href="#top" class="back-to-top" aria-label="Back to Top">🔼 Table of Contents</a>
+
+<style>
+.back-to-top {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  text-decoration: none;
+  font-size: 2rem;
+  display: inline-block;
+  opacity: 0.7;
+  transition: opacity 0.3s;
+}
+
+.back-to-top:hover {
+  opacity: 1;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+</style>
+
+
 ---
 
 ## 📌 Table of Contents
