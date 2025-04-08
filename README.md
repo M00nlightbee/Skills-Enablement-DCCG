@@ -12,9 +12,6 @@
   </p>
 </div>
 
-<div class="back-to-top-wrapper">
-  <a href="#top" class="back-to-top-link" aria-label="Scroll to Top">🔝</a>
-</div>
 
 ---
 
@@ -161,3 +158,9 @@ git clone https://github.com/M00nlightbee/Skills-Enablement-DCCG.git
 
 # Open in Unity (version: Unity 6 (2024) 6000.0.37f1 LTS)
 # Run the main scene to play
+
+----
+
+<div class="back-to-top-wrapper">
+  <a href="#top" class="back-to-top-link" aria-label="Scroll to Top">🔝</a>
+</div>
