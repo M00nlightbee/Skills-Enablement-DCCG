@@ -12,6 +12,9 @@
   </p>
 </div>
 
+<p style="align:right; position: sticky;">
+  <a href="#top" class="back-to-top-link" aria-label="Scroll to Top" >🔼 Table of Contents</a>
+</p>
 
 ---
 
@@ -148,7 +151,6 @@ Here’s what each part of a card means:
   - 🟣 **Purple** – Epic  
   - 🟡 **Gold** – Legendary
 
-[🔼 Table of Contents](https://github.com/M00nlightbee/Skills-Enablement-DCCG/blob/main/README.md#-table-of-contents)
 ---
 
 ## 🛠️ Setup & Contribution
@@ -160,8 +162,6 @@ git clone https://github.com/M00nlightbee/Skills-Enablement-DCCG.git
 # Open in Unity (version: Unity 6 (2024) 6000.0.37f1 LTS)
 # Run the main scene to play
 ```
-<p align="right">
-  <a href="#top" class="back-to-top-link" aria-label="Scroll to Top" >🔼 Table of Contents</a>
-</p>
+
 
 
