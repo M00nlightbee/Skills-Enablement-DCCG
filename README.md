@@ -32,7 +32,6 @@ https://github.com/user-attachments/assets/0017f195-46c4-4b11-9704-1746bf025d84
 - [Game Flow](https://github.com/M00nlightbee/Skills-Enablement-DCCG?tab=readme-ov-file#-game-flow)
 - [Card Anatomy & Rarity](https://github.com/M00nlightbee/Skills-Enablement-DCCG?tab=readme-ov-file#-card-anatomy--rarity)
 - [Setup & Contribution](https://github.com/M00nlightbee/Skills-Enablement-DCCG?tab=readme-ov-file#%EF%B8%8F-setup--contribution)
-- [Special Thanks]()
 - [License](https://github.com/M00nlightbee/Skills-Enablement-DCCG?tab=License-1-ov-file)
 
 ---
