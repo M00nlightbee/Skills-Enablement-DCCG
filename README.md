@@ -162,12 +162,5 @@ git clone https://github.com/M00nlightbee/Skills-Enablement-DCCG.git
 
 ---
 
-<div class="back-to-top-wrapper">
-  <a href="#top" class="back-to-top-link" aria-label="Scroll to Top">🔝</a>
-</div>
+[🔼 Back to top](#table-of-contents)
 
-@media screen and (prefers-reduced-motion: no-preference) {
-  html {
-    scroll-behavior: smooth;
-  }
-}
