@@ -44,7 +44,7 @@ Players:
 👉 [Project Overview](https://docs.google.com/document/d/14BMKRUqbnrAMTLlWKWsAzZeuF36g5QbhpxTpNvQdBx4/edit?usp=sharing)
 
 <p align="right">
-  <a href="#top">🔼 Table of Contents</a>
+  <a href="https://github.com/M00nlightbee/Skills-Enablement-DCCG/blob/main/README.md#-table-of-contents">🔼 Table of Contents</a>
 </p>
 
 ---
@@ -59,7 +59,7 @@ Players:
 - 📊 Health & mana UI with real-time updates
 
 <p align="right">
-  <a href="#top">🔼 Table of Contents</a>
+  <a href="https://github.com/M00nlightbee/Skills-Enablement-DCCG/blob/main/README.md#-table-of-contents">🔼 Table of Contents</a>
 </p>
 
 ---
@@ -73,7 +73,7 @@ We used Agile game dev practices:
 - 📋 Clean, modular code with `GameManager`, `Card`, `DeckManager`, etc.
 
 <p align="right">
-  <a href="#top">🔼 Table of Contents</a>
+  <a href="https://github.com/M00nlightbee/Skills-Enablement-DCCG/blob/main/README.md#-table-of-contents">🔼 Table of Contents</a>
 </p>
 
 ---
@@ -89,7 +89,7 @@ We planned every screen first with wireframes:
 ▶️ [View Figma Wireframes](https://www.figma.com/proto/6WOWbbwzxDDswA4TzgWmtG/Game-Prototype?page-id=0%3A1&node-id=41-977&p=f&viewport=214%2C-45%2C0.13&scaling=contain&content-scaling=fixed&starting-point-node-id=41%3A977)
 
 <p align="right">
-  <a href="#top">🔼 Table of Contents</a>
+  <a href="https://github.com/M00nlightbee/Skills-Enablement-DCCG/blob/main/README.md#-table-of-contents">🔼 Table of Contents</a>
 </p>
 
 ---
@@ -104,7 +104,7 @@ We planned every screen first with wireframes:
 - 🌐 **GitHub** – version control and project tracking
 
 <p align="right">
-  <a href="#top">🔼 Table of Contents</a>
+  <a href="https://github.com/M00nlightbee/Skills-Enablement-DCCG/blob/main/README.md#-table-of-contents">🔼 Table of Contents</a>
 </p>
 
 ---
@@ -125,7 +125,7 @@ We planned every screen first with wireframes:
 - Cards are rewarded based on quiz performance
 
 <p align="right">
-  <a href="#top">🔼 Table of Contents</a>
+  <a href="https://github.com/M00nlightbee/Skills-Enablement-DCCG/blob/main/README.md#-table-of-contents">🔼 Table of Contents</a>
 </p>
 
 ---
@@ -173,7 +173,7 @@ Here’s what each part of a card means:
   - 🟡 **Gold** – Legendary
 
 <p align="right">
-  <a href="#top">🔼 Table of Contents</a>
+  <a href="https://github.com/M00nlightbee/Skills-Enablement-DCCG/blob/main/README.md#-table-of-contents">🔼 Table of Contents</a>
 </p>
 
 ---
@@ -189,6 +189,6 @@ git clone https://github.com/M00nlightbee/Skills-Enablement-DCCG.git
 ```
 
 <p align="right">
-  <a href="#top">🔼 Table of Contents</a>
+  <a href="https://github.com/M00nlightbee/Skills-Enablement-DCCG/blob/main/README.md#-table-of-contents">🔼 Table of Contents</a>
 </p>
 
