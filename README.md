@@ -7,7 +7,9 @@
   <h3 align="center">Skills Enablement Digital Collectible Card Game</h3>
   <p align="center">
     A strategic card game to make learning engaging and fun! <br />
-    <strong>Built with Unity • Backed by IBM SkillsBuild</strong><br />
+    <strong>Built with Unity • Backed by IBM SkillsBuild</strong>
+    <br/>
+    <br/>
     ▶️ <a href="https://blessingu.itch.io/ibmskillbuilddccg" target="_blank"><strong>Play the Game on Itch.io</strong></a>
   </p>
 </div>
