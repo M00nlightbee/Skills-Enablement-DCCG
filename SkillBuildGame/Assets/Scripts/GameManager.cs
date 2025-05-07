@@ -46,6 +46,8 @@ public class GameManager : MonoBehaviour
 	private Image playerShip;
 	public Text turnIndicatorText;
 
+	public static float ElapsedTimeToVictory { get; private set; }
+
 	private void Awake()
 	{
 		if (Instance == null)
@@ -85,6 +87,26 @@ public class GameManager : MonoBehaviour
 			Destroy(gameObject);
 		}
 	}
+
+	public GameObject targetGameObject;
+	private void Update()
+	{
+		if (Input.GetKeyDown(KeyCode.Escape))
+		{
+			if (targetGameObject != null)
+			{
+				// Toggle the active state of the GameObject
+				bool isActive = targetGameObject.activeSelf;
+				targetGameObject.SetActive(!isActive);
+				Debug.Log($"ESC key pressed. GameObject active state: {!isActive}");
+			}
+			else
+			{
+				Debug.LogWarning("Target GameObject is not assigned in the Inspector.");
+			}
+		}
+	}
+
 
 	private void OnEndTurnButtonClick()
 	{
@@ -426,6 +448,7 @@ public class GameManager : MonoBehaviour
 		}
 		else if (opponentHealth <= minHealth)
 		{
+			ElapsedTimeToVictory = Time.timeSinceLevelLoad;
 			SceneManager.LoadSceneAsync(victorySceneName);
 		}
 	}

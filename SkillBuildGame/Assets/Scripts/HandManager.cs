@@ -23,7 +23,10 @@ public class HandManager : MonoBehaviour
 	public void AddCardToHand(Card cardData)
 	{
 		if (cardsInHand.Count >= maxHandSize)
+		{
+			FindAnyObjectByType<MessageDisplay>().ShowMessage($"Max number of cards in hand {maxHandSize}, End turn", 4f);
 			return;
+		}
 
 		// Instantiate the card
 		GameObject newCard = Instantiate(cardPrefab, handTransform.position, Quaternion.identity, handTransform);

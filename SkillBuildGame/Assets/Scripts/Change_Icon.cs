@@ -20,7 +20,7 @@ public class Change_Icon : MonoBehaviour
 
      public void NextOption()
     {
-       if (position <20)
+       if (position < Character_Array.Length - 1)
             {
             position ++;
             Character_Icon.texture = Character_Array[position];
@@ -29,7 +29,7 @@ public class Change_Icon : MonoBehaviour
 
     public void BackOption()
     {
-       if (position >=0)
+       if (position > 0)
             {
             position --;
             Character_Icon.texture = Character_Array[position];

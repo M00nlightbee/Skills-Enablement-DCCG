@@ -65,4 +65,42 @@ public class DragUIObject : MonoBehaviour, IDragHandler, IPointerDownHandler, IE
 		}
 	}
 
+	//public void OnEndDrag(PointerEventData eventData)
+	//{
+	//	// Get the world position of the pointer
+	//	Vector2 worldPosition = Camera.main.ScreenToWorldPoint(eventData.position);
+
+	//	// Check for a collider at the pointer's position
+	//	Collider2D hitCollider = Physics2D.OverlapPoint(worldPosition);
+
+	//	if (hitCollider != null)
+	//	{
+	//		DropArea dropArea = hitCollider.GetComponent<DropArea>();
+	//		if (dropArea != null)
+	//		{
+	//			// Check if the dragged object (arc) is in collision with the drop area
+	//			Collider2D arcCollider = GetComponent<Collider2D>();
+	//			if (arcCollider != null && arcCollider.IsTouching(hitCollider))
+	//			{
+	//				if (cardDisplay != null && cardDisplay.cardData != null)
+	//				{
+	//					Card card = cardDisplay.cardData;
+	//					if (card.cardType.Contains(Card.CardType.question))
+	//					{
+	//						GameManager.Instance.HandleQuestionCardDrop(card, gameObject);
+	//					}
+	//					else if (card.cardType.Contains(Card.CardType.attack))
+	//					{
+	//						GameManager.Instance.DealDamageToOpponent(card, gameObject);
+	//					}
+	//					else if (card.cardType.Contains(Card.CardType.heal))
+	//					{
+	//						GameManager.Instance.HealPlayer(card, gameObject);
+	//					}
+	//				}
+	//			}
+	//		}
+	//	}
+	//}
+
 }

@@ -30,7 +30,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 5013057068539721183}
   - {fileID: 8579249265111085663}
   - {fileID: 664503466026971435}
   m_Father: {fileID: 0}
@@ -49,68 +48,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   endTurnButton: {fileID: 0}
   drawCardButton: {fileID: 0}
---- !u!1001 &1914556512153845598
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 2583553253169992315}
-    m_Modifications:
-    - target: {fileID: 6845519635891423873, guid: 768cd089dae9eeb4786f0ce432007d0e, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6845519635891423873, guid: 768cd089dae9eeb4786f0ce432007d0e, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6845519635891423873, guid: 768cd089dae9eeb4786f0ce432007d0e, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6845519635891423873, guid: 768cd089dae9eeb4786f0ce432007d0e, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6845519635891423873, guid: 768cd089dae9eeb4786f0ce432007d0e, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6845519635891423873, guid: 768cd089dae9eeb4786f0ce432007d0e, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6845519635891423873, guid: 768cd089dae9eeb4786f0ce432007d0e, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6845519635891423873, guid: 768cd089dae9eeb4786f0ce432007d0e, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6845519635891423873, guid: 768cd089dae9eeb4786f0ce432007d0e, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6845519635891423873, guid: 768cd089dae9eeb4786f0ce432007d0e, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9037236951333792356, guid: 768cd089dae9eeb4786f0ce432007d0e, type: 3}
-      propertyPath: m_Name
-      value: OptionsManager
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 768cd089dae9eeb4786f0ce432007d0e, type: 3}
---- !u!4 &5013057068539721183 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 6845519635891423873, guid: 768cd089dae9eeb4786f0ce432007d0e, type: 3}
-  m_PrefabInstance: {fileID: 1914556512153845598}
-  m_PrefabAsset: {fileID: 0}
+  damageSoundEffect: {fileID: 0}
+  healSoundEffect: {fileID: 0}
+  turnIndicatorText: {fileID: 0}
+  targetGameObject: {fileID: 0}
 --- !u!1001 &3340583705393307037
 PrefabInstance:
   m_ObjectHideFlags: 0
