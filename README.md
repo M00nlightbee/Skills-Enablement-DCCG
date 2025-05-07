@@ -2,29 +2,37 @@
 
 <div align="center">
   <a href="https://github.com/M00nlightbee/Skills-Enablement-DCCG">
-    <img src="images/logo.png" alt="Logo" width="80" height="80">
+    <img src="logo.png" alt="Logo" width="80" height="80">
   </a>
   <h3 align="center">Skills Enablement Digital Collectible Card Game</h3>
   <p align="center">
     A strategic card game to make learning engaging and fun! <br />
-    <strong>Built with Unity • Backed by IBM SkillsBuild</strong><br />
+    <strong>Built with Unity • Backed by IBM SkillsBuild</strong>
+    <br/>
+    <br/>
     ▶️ <a href="https://blessingu.itch.io/ibmskillbuilddccg" target="_blank"><strong>Play the Game on Itch.io</strong></a>
   </p>
 </div>
 
 ---
 
+## Game Play Tutorial
+
+https://github.com/user-attachments/assets/0017f195-46c4-4b11-9704-1746bf025d84
+
+---
+
 ## 📌 Table of Contents
 
-- [About the Project](#about-the-project)
-- [Key Features](#key-features)
-- [Development Process](#development-process)
-- [Wireframes & Design](#wireframes--design)
-- [Technologies Used](#technologies-used)
-- [Game Flow](#game-flow)
-- [Card Anatomy & Rarity](#card-anatomy--rarity)
-- [Setup & Contribution](#setup--contribution)
-- [License](#license)
+- [About the Project](https://github.com/M00nlightbee/Skills-Enablement-DCCG?tab=readme-ov-file#-about-the-project)
+- [Key Features](https://github.com/M00nlightbee/Skills-Enablement-DCCG?tab=readme-ov-file#-key-features)
+- [Development Process](https://github.com/M00nlightbee/Skills-Enablement-DCCG?tab=readme-ov-file#-development-process)
+- [Wireframes & Design](https://github.com/M00nlightbee/Skills-Enablement-DCCG?tab=readme-ov-file#-wireframes--design)
+- [Technologies Used](https://github.com/M00nlightbee/Skills-Enablement-DCCG?tab=readme-ov-file#-technologies-used)
+- [Game Flow](https://github.com/M00nlightbee/Skills-Enablement-DCCG?tab=readme-ov-file#-game-flow)
+- [Card Anatomy & Rarity](https://github.com/M00nlightbee/Skills-Enablement-DCCG?tab=readme-ov-file#-card-anatomy--rarity)
+- [Setup & Contribution](https://github.com/M00nlightbee/Skills-Enablement-DCCG?tab=readme-ov-file#%EF%B8%8F-setup--contribution)
+- [License](https://github.com/M00nlightbee/Skills-Enablement-DCCG?tab=License-1-ov-file)
 
 ---
 <div align="center">
@@ -42,6 +50,10 @@ Players:
 
 👉 [Project Overview](https://docs.google.com/document/d/14BMKRUqbnrAMTLlWKWsAzZeuF36g5QbhpxTpNvQdBx4/edit?usp=sharing)
 
+<p align="right">
+  <a href="https://github.com/M00nlightbee/Skills-Enablement-DCCG/blob/main/README.md#-table-of-contents">🔼 Table of Contents</a>
+</p>
+
 ---
 
 ## 🔑 Key Features
@@ -53,6 +65,10 @@ Players:
 - 🔁 Drag-and-drop mechanics
 - 📊 Health & mana UI with real-time updates
 
+<p align="right">
+  <a href="https://github.com/M00nlightbee/Skills-Enablement-DCCG/blob/main/README.md#-table-of-contents">🔼 Table of Contents</a>
+</p>
+
 ---
 
 ## 🔄 Development Process
@@ -62,6 +78,10 @@ We used Agile game dev practices:
 - 🧪 Playtesting and feedback loops
 - 🔄 Iterative Unity builds and sprints
 - 📋 Clean, modular code with `GameManager`, `Card`, `DeckManager`, etc.
+
+<p align="right">
+  <a href="https://github.com/M00nlightbee/Skills-Enablement-DCCG/blob/main/README.md#-table-of-contents">🔼 Table of Contents</a>
+</p>
 
 ---
 
@@ -75,6 +95,10 @@ We planned every screen first with wireframes:
 
 ▶️ [View Figma Wireframes](https://www.figma.com/proto/6WOWbbwzxDDswA4TzgWmtG/Game-Prototype?page-id=0%3A1&node-id=41-977&p=f&viewport=214%2C-45%2C0.13&scaling=contain&content-scaling=fixed&starting-point-node-id=41%3A977)
 
+<p align="right">
+  <a href="https://github.com/M00nlightbee/Skills-Enablement-DCCG/blob/main/README.md#-table-of-contents">🔼 Table of Contents</a>
+</p>
+
 ---
 
 ## 🧰 Technologies Used
@@ -85,6 +109,10 @@ We planned every screen first with wireframes:
 - 🧪 **Unity Test Framework** – unit tests
 - 🖼️ **Figma** – UI/UX design
 - 🌐 **GitHub** – version control and project tracking
+
+<p align="right">
+  <a href="https://github.com/M00nlightbee/Skills-Enablement-DCCG/blob/main/README.md#-table-of-contents">🔼 Table of Contents</a>
+</p>
 
 ---
 
@@ -103,6 +131,10 @@ We planned every screen first with wireframes:
 - Mana required to play stronger cards
 - Cards are rewarded based on quiz performance
 
+<p align="right">
+  <a href="https://github.com/M00nlightbee/Skills-Enablement-DCCG/blob/main/README.md#-table-of-contents">🔼 Table of Contents</a>
+</p>
+
 ---
 
 ## 🃏 Card Anatomy & Rarity
@@ -110,16 +142,19 @@ We planned every screen first with wireframes:
 Here’s what each part of a card means:
 
 <div align="center">
-  <img src="CardDesign.png" alt="Card Design" width="400"/>
+  <img src="CardAnatomy.PNG" alt="Card Design" width="400"/>
 </div>
 
 ### 🔍 Card Breakdown
 
-- **Opponent's Mana (Top Left)**  
-  Shows how much energy the opponent has left. Starts at 10. When it hits 0, they lose!
+- **Mana Cost (Top Left)**  
+  Shows the amount of mana required to play card
 
-- **Player's Mana (Bottom Left)**  
-  Your energy level! You need mana to play cards. Starts at 10, game ends if it drops to 0.
+- **Effect Value (Bottom Left)**  
+  Effect can be attack/heal/mana value:
+    - for attack the number of damage to be dealt
+    - for heal number of health you can gain and
+    - for mana number of mana you can gain for each question you get right(each correct answer gives 1 mana)
 
 - **Card Name (Top Center)**  
   Every card has a cool name — like “Cyber Firewall” or “AI Strike”.
@@ -127,10 +162,10 @@ Here’s what each part of a card means:
 - **Card Image (Middle)**  
   The visual of the card — sometimes a hero, a shield, or a starship.
 
-- **Card Effect (Bottom Center)**  
-  Shows what the card does, like “Deal 3 Damage” or “Heal 2 Health”.
+- **Card Effect Description (Bottom Center)**  
+  Shows what the card does, e.g "Deal 3 Damage" ,"“Heal 2 Health" or "Gain 2 Mana".
 
-- **Card Action Type (Bottom Right Color Dot)**  
+- **Card Action Type (Sheild Icon on the image)**  
   What this card does:
   - 🔴 **Red** = Attack
   - 🟢 **Green** = Heal
@@ -144,6 +179,10 @@ Here’s what each part of a card means:
   - 🟣 **Purple** – Epic  
   - 🟡 **Gold** – Legendary
 
+<p align="right">
+  <a href="https://github.com/M00nlightbee/Skills-Enablement-DCCG/blob/main/README.md#-table-of-contents">🔼 Table of Contents</a>
+</p>
+
 ---
 
 ## 🛠️ Setup & Contribution
@@ -152,5 +191,11 @@ Here’s what each part of a card means:
 # Clone the repo
 git clone https://github.com/M00nlightbee/Skills-Enablement-DCCG.git
 
-# Open in Unity (version X.X.XfX)
+# Open in Unity (version: Unity 6 (2024) 6000.0.37f1 LTS)
 # Run the main scene to play
+```
+
+<p align="right">
+  <a href="https://github.com/M00nlightbee/Skills-Enablement-DCCG/blob/main/README.md#-table-of-contents">🔼 Table of Contents</a>
+</p>
+
