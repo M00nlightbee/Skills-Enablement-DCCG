@@ -109,6 +109,7 @@ We planned every screen first with wireframes:
 - 🧪 **Unity Test Framework** – unit tests
 - 🖼️ **Figma** – UI/UX design
 - 🌐 **GitHub** – version control and project tracking
+- **Supabase** – Database
 
 <p align="right">
   <a href="https://github.com/M00nlightbee/Skills-Enablement-DCCG/blob/main/README.md#-table-of-contents">🔼 Table of Contents</a>
