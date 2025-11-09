@@ -28,6 +28,8 @@
 - [Card Anatomy & Rarity](https://github.com/M00nlightbee/Skills-Enablement-DCCG?tab=readme-ov-file#-card-anatomy--rarity)
 - [Setup & Contribution](https://github.com/M00nlightbee/Skills-Enablement-DCCG?tab=readme-ov-file#%EF%B8%8F-setup--contribution)
 - [License](https://github.com/M00nlightbee/Skills-Enablement-DCCG?tab=License-1-ov-file)
+- [Credits](https://github.com/M00nlightbee/Skills-Enablement-DCCG?tab=License-1-ov-file)
+- [Special Thanks](https://github.com/M00nlightbee/Skills-Enablement-DCCG?tab=License-1-ov-file)
 
 ---
 <div align="center">
@@ -201,12 +203,16 @@ git clone https://github.com/M00nlightbee/Skills-Enablement-DCCG.git
 
 - Card Art - Niven Nishanthan
 - Character and Start Scene - [Elekiir](https://github.com/Elekir)
-- Menu Scene - [Emmanuel Atiso](https://github.com/Emmanuel-Atiso)
+- Menu Scene and README.md - [Emmanuel Atiso](https://github.com/Emmanuel-Atiso)
 - Course Scene - Saeed Abdilahi
 - Testing - [Emmanuel Atiso](https://github.com/Emmanuel-Atiso) and [Elekir Moyuwen](https://github.com/Elekir)
-
+---
 - Game Sounds - [Pixabay](https://pixabay.com/) and [Zapsplat](https://www.zapsplat.com/)
 - Ship Images - [Cleanpng](https://www.cleanpng.com/)
+
+<p align="right">
+  <a href="https://github.com/M00nlightbee/Skills-Enablement-DCCG/blob/main/README.md#-table-of-contents">🔼 Table of Contents</a>
+</p>
 
 ---
 
@@ -214,3 +220,7 @@ git clone https://github.com/M00nlightbee/Skills-Enablement-DCCG.git
 
 - Lead IBM Mentor - John McNamara
 - Supervisor - [Essam Eliwa](https://github.com/esomar)
+
+<p align="right">
+  <a href="https://github.com/M00nlightbee/Skills-Enablement-DCCG/blob/main/README.md#-table-of-contents">🔼 Table of Contents</a>
+</p>
