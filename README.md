@@ -12,13 +12,8 @@
     <br/>
     ▶️ <a href="https://blessingu.itch.io/ibmskillbuilddccg" target="_blank"><strong>Play the Game on Itch.io</strong></a>
   </p>
+  <p>Project was invited to the 2025 Student Showcase event and won 2nd place at the showcase</p>
 </div>
-
----
-
-## Game Play Tutorial
-
-https://github.com/user-attachments/assets/0017f195-46c4-4b11-9704-1746bf025d84
 
 ---
 
@@ -200,3 +195,22 @@ git clone https://github.com/M00nlightbee/Skills-Enablement-DCCG.git
   <a href="https://github.com/M00nlightbee/Skills-Enablement-DCCG/blob/main/README.md#-table-of-contents">🔼 Table of Contents</a>
 </p>
 
+---
+
+## Credits
+
+- Card Art - Niven Nishanthan
+- Character and Start Scene - [Elekiir](https://github.com/Elekir)
+- Menu Scene - [Emmanuel Atiso](https://github.com/Emmanuel-Atiso)
+- Course Scene - Saeed Abdilahi
+- Testing - [Emmanuel Atiso](https://github.com/Emmanuel-Atiso) and [Elekir Moyuwen](https://github.com/Elekir)
+
+- Game Sounds - [Pixabay](https://pixabay.com/) and [Zapsplat](https://www.zapsplat.com/)
+- Ship Images - [Cleanpng](https://www.cleanpng.com/)
+
+---
+
+## Special Thanks
+
+- Lead IBM Mentor - John McNamara
+- Supervisor - [Essam Eliwa](https://github.com/esomar)
