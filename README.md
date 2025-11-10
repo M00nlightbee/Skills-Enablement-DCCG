@@ -203,7 +203,7 @@ git clone https://github.com/M00nlightbee/Skills-Enablement-DCCG.git
 
 - Card Art - Niven Nishanthan
 - Character and Start Scene - [Elekiir](https://github.com/Elekir)
-- Menu Scene and README.md - [Emmanuel Atiso](https://github.com/Emmanuel-Atiso)
+- Menu Scene, README.md and License - [Emmanuel Atiso](https://github.com/Emmanuel-Atiso)
 - Course Scene - Saeed Abdilahi
 - Testing - [Emmanuel Atiso](https://github.com/Emmanuel-Atiso) and [Elekir Moyuwen](https://github.com/Elekir)
 ---
