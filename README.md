@@ -28,8 +28,8 @@
 - [Card Anatomy & Rarity](https://github.com/M00nlightbee/Skills-Enablement-DCCG?tab=readme-ov-file#-card-anatomy--rarity)
 - [Setup & Contribution](https://github.com/M00nlightbee/Skills-Enablement-DCCG?tab=readme-ov-file#%EF%B8%8F-setup--contribution)
 - [License](https://github.com/M00nlightbee/Skills-Enablement-DCCG?tab=License-1-ov-file)
-- [Credits](https://github.com/M00nlightbee/Skills-Enablement-DCCG?tab=License-1-ov-file)
-- [Special Thanks](https://github.com/M00nlightbee/Skills-Enablement-DCCG?tab=License-1-ov-file)
+- [Credits](https://github.com/M00nlightbee/Skills-Enablement-DCCG?tab=readme-ov-file#credits)
+- [Special Thanks](https://github.com/M00nlightbee/Skills-Enablement-DCCG?tab=readme-ov-file#special-thanks)
 
 ---
 <div align="center">
