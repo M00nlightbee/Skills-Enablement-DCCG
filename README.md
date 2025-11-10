@@ -28,7 +28,7 @@
 - [Card Anatomy & Rarity](https://github.com/M00nlightbee/Skills-Enablement-DCCG?tab=readme-ov-file#-card-anatomy--rarity)
 - [Setup & Contribution](https://github.com/M00nlightbee/Skills-Enablement-DCCG?tab=readme-ov-file#%EF%B8%8F-setup--contribution)
 - [License](https://github.com/M00nlightbee/Skills-Enablement-DCCG?tab=License-1-ov-file)
-- [Credits](https://github.com/M00nlightbee/Skills-Enablement-DCCG?tab=readme-ov-file#credits)
+- [Contributors](https://github.com/M00nlightbee/Skills-Enablement-DCCG?tab=readme-ov-file#credits)
 - [Special Thanks](https://github.com/M00nlightbee/Skills-Enablement-DCCG?tab=readme-ov-file#special-thanks)
 
 ---
@@ -199,7 +199,7 @@ git clone https://github.com/M00nlightbee/Skills-Enablement-DCCG.git
 
 ---
 
-## Credits
+## Contributors
 
 - Card Art - Niven Nishanthan
 - Character and Start Scene - [Elekiir](https://github.com/Elekir)
@@ -207,6 +207,9 @@ git clone https://github.com/M00nlightbee/Skills-Enablement-DCCG.git
 - Course Scene - Saeed Abdilahi
 - Testing - [Emmanuel Atiso](https://github.com/Emmanuel-Atiso) and [Elekir Moyuwen](https://github.com/Elekir)
 ---
+
+## Credits
+
 - Game Sounds - [Pixabay](https://pixabay.com/) and [Zapsplat](https://www.zapsplat.com/)
 - Ship Images - [Cleanpng](https://www.cleanpng.com/)
 
